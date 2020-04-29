@@ -22,5 +22,4 @@ jspm_packages/
 # dotenv environment variables file
 .env
 .env.test
-
-demo
+.DS_Store

@@ -8,6 +8,7 @@ module.exports = {
     library: "devOS",
     libraryTarget: "umd",
   },
+  target: "web",
   module: {
     rules: [
       {
