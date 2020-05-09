@@ -1,3 +1,5 @@
+import useOnMove from "./useOnMove";
+import useOnWindowEvent from "./useOnWindowEvent";
 import useStore from "./useStore";
 
-export { useStore };
+export { useOnMove, useStore, useOnWindowEvent };
