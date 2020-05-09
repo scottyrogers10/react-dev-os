@@ -1,7 +1,7 @@
 {
   "name": "react-dev-os",
   "author": "Scotty Rogers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An interactive development environment for react apps.",
   "license": "ISC",
   "repository": {
@@ -23,9 +23,11 @@
     "build": "webpack --config webpack.config.js --mode production"
   },
   "dependencies": {
-    "generic-data-chamber": "^6.0.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "generic-data-chamber": "^6.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -37,6 +39,8 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^4.0.0",
     "css-loader": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5"
