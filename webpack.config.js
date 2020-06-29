@@ -33,5 +33,4 @@ module.exports = {
     react: "react",
     reactDOM: "react-dom",
   },
-  devtool: "eval-source-map",
 };
