@@ -11,7 +11,7 @@ const ToolManager = ({ style, tools }) => {
   const handleKeyUp = (event) => {
     const tagName = event.target.tagName.toUpperCase();
 
-    if (tagName !== "INPUT" && tagName !== "TEXT_AREA" && event.keyCode === T_KEYCODE) {
+    if (tagName !== "INPUT" && tagName !== "TEXTAREA" && event.keyCode === T_KEYCODE) {
       createWindow({
         type: "TOOL_BROWSER",
         component: (props) => ToolBrowser({ tools, ...props }),
