@@ -1,5 +1,4 @@
 module.exports = {
-  mode: "production",
   entry: "./src/index.js",
   output: {
     path: __dirname + "/dist",
@@ -30,4 +29,9 @@ module.exports = {
   resolve: {
     extensions: ["*", ".js"],
   },
+  externals: {
+    react: "react",
+    reactDOM: "react-dom",
+  },
+  devtool: "eval-source-map",
 };

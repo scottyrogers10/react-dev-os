@@ -1,22 +1,23 @@
-import React, { useRef } from "react";
-import { View, ViewRef } from "library/ui";
+import React from "react";
+import { View } from "@library/ui";
+import store from "@store";
+import { useStore } from "@tools/hooks";
 import Header from "./Header";
-import store from "store";
 import styles from "./styles";
 
-const Container = View;
 const Window = ({ id, style }) => {
-  const elem = useRef();
-  const handleMouseDown = () => {};
+  const data = useStore((store) => store.getState("windows").byId[id]);
   const Content = store.getState("windows").byId[id].component;
 
+  const handleMouseDown = () => store.dispatch("windows.focus", id);
+
   return (
-    <ViewRef style={{ ...styles.view(data), ...style }} ref={elem} onMouseDown={handleMouseDown}>
+    <View style={{ ...styles.view(data), ...style }} onMouseDown={handleMouseDown}>
       <Header style={styles.header} id={id} />
-      <Container style={styles.contentContainer}>
+      <View style={styles.contentContainer}>
         <Content />
-      </Container>
-    </ViewRef>
+      </View>
+    </View>
   );
 };
 

@@ -1,4 +1,7 @@
 import { Store } from "generic-data-chamber";
-import types from "./types";
+// Store Types //
+import windows from "./windows";
 
-export default new Store({ name: "DEV_TOOLS", types });
+const store = new Store({ name: "DEV_TOOLS", types: { windows } });
+window.store = store;
+export default store;

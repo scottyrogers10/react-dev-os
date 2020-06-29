@@ -1,30 +1,29 @@
 import React from "react";
-import { View, ViewRef } from "library/ui";
-import ActionButtons from "./ActionButtons";
-import { useOnMove } from "library/hooks";
-import { useStore } from "tools/hooks";
+import { Text, View, ViewRef } from "@library/ui";
+import { useOnMove } from "@library/hooks";
+import { useStore } from "@tools/hooks";
+import closeWindow from "@procedures/windows/close";
+import store from "@store";
+import ActionButtons from "./children/ActionButtons";
+import handleMove from "./helpers/handleMove";
 import styles from "./styles";
 
-const FlexSpacer = View;
-const Text = View;
 const Header = ({ id, style }) => {
-  const { isFocused, title } = useStore((store) => {
-    const windows = store.getState("windows");
-    const [focusedId] = windows.orderedIds.slice(-1);
-    const title = windows.byId[id].title;
+  const { ref } = useOnMove({ onMove: (event) => handleMove(store, event, id) });
 
-    return { isFocused: id === focusedId, title };
+  const title = useStore((store) => store.getState("windows").byId[id].title);
+  const isFocused = useStore((store) => {
+    const [focusedId] = store.getState("windows").orderedIds.slice(-1);
+    return id === focusedId;
   });
 
-  const handleClose = () => {};
-  const handleOnMove = () => {};
+  const handleClose = () => closeWindow(id);
 
-  const { ref } = useOnMove({ onMove: handleOnMove });
   return (
     <ViewRef style={{ ...styles.view, ...style, ...styles.focused(isFocused) }} ref={ref}>
       <ActionButtons style={styles.actionButtons} isFocused={isFocused} onClose={handleClose} />
       <Text style={styles.title}>{title}</Text>
-      <FlexSpacer style={styles.flexSpacer} />
+      <View style={styles.flexSpacer} />
     </ViewRef>
   );
 };

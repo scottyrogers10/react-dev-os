@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "library/ui";
+import { View } from "@library/ui";
 import styles from "./styles";
 
 const ActionButton = ({ onClick, primaryColor, style }) => {

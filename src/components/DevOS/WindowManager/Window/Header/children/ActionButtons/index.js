@@ -1,7 +1,7 @@
 import React from "react";
-import { View } from "library/ui";
+import { View } from "@library/ui";
+import { colors } from "@library/styles";
 import ActionButton from "./ActionButton";
-import { colors } from "library/styles";
 import styles from "./styles";
 
 const ActionButtons = ({ isFocused, onClose, style }) => {

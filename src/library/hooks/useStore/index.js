@@ -5,11 +5,16 @@ export default (store) => {
     const [state, setState] = useState(defaultState === undefined ? mapStoreToState(store) : defaultState);
 
     useEffect(() => {
+      let isCanceled = false;
+
       const subscriber = store.subscribe((currentStore) => {
-        setState(mapStoreToState(currentStore));
+        setTimeout(() => !isCanceled && setState(mapStoreToState(currentStore)), 0);
       });
 
-      return subscriber.unsubscribe;
+      return () => {
+        isCanceled = true;
+        subscriber.unsubscribe();
+      };
     }, []);
 
     return state;
