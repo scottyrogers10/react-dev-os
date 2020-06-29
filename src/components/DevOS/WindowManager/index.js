@@ -1,11 +1,8 @@
 import React from "react";
 import { View } from "@library/ui";
 import { useStore } from "@tools/hooks";
-import createWindow from "@procedures/windows/create";
 import Window from "./Window";
 import styles from "./styles";
-
-window.createWindow = createWindow;
 
 const WindowManager = ({ style }) => {
   const windowIds = useStore((store) => store.getState("windows").orderedIds);

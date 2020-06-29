@@ -2,21 +2,18 @@ import React from "react";
 import { View } from "@library/ui";
 import store from "@store";
 import { useStore } from "@tools/hooks";
+import Content from "./Content";
 import Header from "./Header";
 import styles from "./styles";
 
 const Window = ({ id, style }) => {
-  const data = useStore((store) => store.getState("windows").byId[id]);
-  const Content = store.getState("windows").byId[id].component;
-
+  const window = useStore((store) => store.getState("windows").byId[id]);
   const handleMouseDown = () => store.dispatch("windows.focus", id);
 
   return (
-    <View style={{ ...styles.view(data), ...style }} onMouseDown={handleMouseDown}>
+    <View style={{ ...styles.view(window), ...style }} onMouseDown={handleMouseDown}>
       <Header style={styles.header} id={id} />
-      <View style={styles.contentContainer}>
-        <Content />
-      </View>
+      <Content id={id} />
     </View>
   );
 };

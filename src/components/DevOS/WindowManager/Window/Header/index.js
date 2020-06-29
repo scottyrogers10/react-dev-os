@@ -3,24 +3,24 @@ import { Text, View, ViewRef } from "@library/ui";
 import { useOnMove } from "@library/hooks";
 import { useStore } from "@tools/hooks";
 import closeWindow from "@procedures/windows/close";
-import store from "@store";
-import ActionButtons from "./children/ActionButtons";
-import handleMove from "./helpers/handleMove";
+import moveWindow from "@procedures/windows/move";
+import ActionButtons from "./ActionButtons";
 import styles from "./styles";
 
 const Header = ({ id, style }) => {
-  const { ref } = useOnMove({ onMove: (event) => handleMove(store, event, id) });
+  const { ref } = useOnMove({ onMove: (event) => moveWindow(event, id) });
 
-  const title = useStore((store) => store.getState("windows").byId[id].title);
+  const { isOpaque, title } = useStore((store) => store.getState("windows").byId[id]);
   const isFocused = useStore((store) => {
     const [focusedId] = store.getState("windows").orderedIds.slice(-1);
     return id === focusedId;
   });
 
   const handleClose = () => closeWindow(id);
+  const handleDoubleClick = () => store.dispatch("windows.update", { id, isOpaque: !isOpaque });
 
   return (
-    <ViewRef style={{ ...styles.view, ...style, ...styles.focused(isFocused) }} ref={ref}>
+    <ViewRef style={{ ...styles.view, ...style, ...styles.focused(isFocused) }} onDoubleClick={handleDoubleClick} ref={ref}>
       <ActionButtons style={styles.actionButtons} isFocused={isFocused} onClose={handleClose} />
       <Text style={styles.title}>{title}</Text>
       <View style={styles.flexSpacer} />

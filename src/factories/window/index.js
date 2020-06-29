@@ -6,6 +6,7 @@ export default {
 
     return {
       id: (currentId += 1),
+      isOpaque: true,
       type: "",
       title: "",
       component: () => null,
@@ -19,8 +20,6 @@ export default {
       },
       ...attrs,
       events: {
-        onBlur: () => {},
-        onClick: () => {},
         onMove: () => {},
         ...events,
       },
