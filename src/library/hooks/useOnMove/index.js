@@ -1,12 +1,22 @@
-import { useEffect, useRef, useState } from "react";
-import { useOnWindowEvent } from "../../hooks";
+import { useEffect, useRef } from "react";
 
 export default ({ onMove = () => {} }) => {
+  let { current: isMouseDown } = useRef(false);
   const ref = useRef(null);
-  const [isMouseDown, setMouseDown] = useState(false);
-  const handleMouseDown = () => setMouseDown(true);
-  const handleMouseUp = () => setMouseDown(false);
+
   const handleMouseMove = (event) => isMouseDown && onMove(event);
+
+  const handleMouseUp = () => {
+    isMouseDown = false;
+    window.removeEventListener("mouseup", handleMouseUp);
+    window.removeEventListener("mousemove", handleMouseMove);
+  };
+
+  const handleMouseDown = () => {
+    isMouseDown = true;
+    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("mousemove", handleMouseMove);
+  };
 
   useEffect(() => {
     const elem = ref.current;
@@ -18,9 +28,6 @@ export default ({ onMove = () => {} }) => {
       };
     }
   }, [ref.current]);
-
-  useOnWindowEvent("mouseup", handleMouseUp);
-  useOnWindowEvent("mousemove", handleMouseMove);
 
   return { ref };
 };
