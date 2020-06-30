@@ -10,13 +10,12 @@ const calculateMove = ({ event, prevPosition }) => {
   };
 };
 
-export default (event, id) => {
+export default ({ event, id, update }) => {
   requestAnimationFrame(() => {
     const window = store.getState("windows").byId[id];
 
     if (window) {
-      const position = calculateMove({ event, prevPosition: window.position });
-      store.dispatch("windows.update", { id, position });
+      update(({ position: prevPosition }) => ({ position: calculateMove({ event, prevPosition }) }));
       window.events.onMove(event);
     }
   });

@@ -3,20 +3,14 @@ import { Text, View, ViewRef } from "@library/ui";
 import { useOnMove } from "@library/hooks";
 import { useStore } from "@tools/hooks";
 import closeWindow from "@procedures/windows/close";
-import moveWindow from "@procedures/windows/move";
 import ActionButtons from "./ActionButtons";
 import styles from "./styles";
 
-const Header = ({ id, style }) => {
-  const { ref } = useOnMove({ onMove: (event) => moveWindow(event, id) });
-
+const Header = ({ id, isFocused, onMove, style }) => {
+  const { ref } = useOnMove({ onMove });
   const { isOpaque, title } = useStore((store) => store.getState("windows").byId[id]);
-  const isFocused = useStore((store) => {
-    const [focusedId] = store.getState("windows").orderedIds.slice(-1);
-    return id === focusedId;
-  });
 
-  const handleClose = () => closeWindow(id);
+  const handleClose = () => isOpaque && closeWindow(id);
   const handleDoubleClick = () => store.dispatch("windows.update", { id, isOpaque: !isOpaque });
 
   return (
@@ -30,6 +24,8 @@ const Header = ({ id, style }) => {
 
 Header.defaultProps = {
   id: null,
+  isFocused: false,
+  onMove: () => {},
   style: {},
 };
 
