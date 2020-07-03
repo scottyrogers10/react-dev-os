@@ -3392,6 +3392,11 @@ schema-utils@^2.6.5, schema-utils@^2.7.0:
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
 
+scr-pipe@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/scr-pipe/-/scr-pipe-1.0.4.tgz#3bc913ea72923402bbad1cdd3cc313bc8db9baf7"
+  integrity sha512-v3c1AjPW0HxBUKckeLSIrxzyLf3edjs2V0F9tIzEAl6ReL0WzfUCbqQJ2C3QAjvZU0cS8qCgeehNKGlIAS6kRg==
+
 semver@7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
