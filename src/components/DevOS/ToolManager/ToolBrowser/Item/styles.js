@@ -2,7 +2,6 @@ import { colors, css } from "@library/styles";
 
 export default {
   view: {
-    flex: 1,
     cursor: "pointer",
     padding: "3px 8px",
     fontSize: "13px",

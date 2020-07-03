@@ -11,7 +11,7 @@ const Content = memo(({ id, style }) => {
 
   return (
     <View style={{ ...styles.view, ...style }}>
-      <Component closeWindow={handleClose} createWindow={createWindow} style={styles.component} />
+      <Component closeWindow={handleClose} createWindow={createWindow} />
     </View>
   );
 });

@@ -11,7 +11,4 @@ export default {
     backgroundColor: colors.gray[900],
     overflow: "hidden",
   },
-  component: {
-    flex: 1,
-  },
 };
