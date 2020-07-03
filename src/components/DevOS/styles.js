@@ -6,7 +6,7 @@ export default {
     width: "100%",
     height: "100%",
     zIndex: 2147483647,
-    boxSizing: "borderBox",
+    boxSizing: "border-box",
     verticalAlign: "baseline",
     lineHeight: "1.5",
     border: 0,

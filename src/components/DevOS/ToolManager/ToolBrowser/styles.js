@@ -1,5 +1,8 @@
 export default {
   view: {
-    overflow: "auto",
+    flex: 1,
+    display: "flex",
+    alignItems: "flex-start",
+    overflowY: "auto",
   },
 };

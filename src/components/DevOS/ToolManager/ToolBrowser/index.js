@@ -3,17 +3,19 @@ import { View } from "@library/ui";
 import Item from "./Item";
 import styles from "./styles";
 
-const ToolBrowser = ({ style, tools }) => {
+const ToolBrowser = ({ closeWindow, createWindow, style, tools }) => {
   return (
     <View style={{ ...styles.view, ...style }}>
       {tools.map((tool, index) => {
-        return <Item key={`ITEM_${index}`} index={index} {...tool} />;
+        return <Item key={`ITEM_${index}`} closeWindow={closeWindow} createWindow={createWindow} index={index} {...tool} />;
       })}
     </View>
   );
 };
 
 ToolBrowser.defaultProps = {
+  closeWindow: () => {},
+  createWindow: () => {},
   style: {},
   tools: [],
 };

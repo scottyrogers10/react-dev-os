@@ -5,7 +5,6 @@ export default {
       transform: `translate(${x}px, ${y}px)`,
       display: "flex",
       flexDirection: "column",
-      overflow: "hidden",
       height: `${height}px`,
       width: `${width}px`,
       borderRadius: "6px",
@@ -16,7 +15,7 @@ export default {
   },
   header: {
     pointerEvents: "auto",
-    minHeight: "22px",
-    height: "22px",
+    minHeight: "24px",
+    height: "24px",
   },
 };

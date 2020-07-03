@@ -1,20 +1,21 @@
-import { css } from "@library/styles";
+import { colors, css } from "@library/styles";
 
 export default {
   view: {
+    flex: 1,
     cursor: "pointer",
     padding: "3px 8px",
     fontSize: "13px",
     fontWeight: "700",
-    color: "#fff",
+    color: colors.white,
     ...css.userSelect.none,
   },
   stripe: (index) => {
     const isOddIndex = index % 2 !== 0;
 
-    return isOddIndex && { backgroundColor: "#333333" };
+    return isOddIndex && { backgroundColor: colors.gray[800] };
   },
   selected: (isSelected) => {
-    return isSelected && { backgroundColor: "#1565c0" };
+    return isSelected && { backgroundColor: colors.blue[800] };
   },
 };

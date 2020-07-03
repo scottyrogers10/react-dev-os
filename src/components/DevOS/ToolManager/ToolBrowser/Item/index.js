@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { View } from "@library/ui";
 import { useOnWindowEvent } from "@library/hooks";
-import createWindow from "@procedures/windows/create";
 import styles from "./styles";
 
-const Item = ({ configs, index, label, style }) => {
+const Item = ({ closeWindow, configs, createWindow, index, label, style }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleMouseDown = () => setIsSelected(true);
   const handleMouseUp = () => {
     setIsSelected(false);
+    closeWindow();
     createWindow(configs);
   };
 
@@ -27,7 +27,9 @@ const Item = ({ configs, index, label, style }) => {
 };
 
 Item.defaultProps = {
+  closeWindow: () => {},
   configs: {},
+  createWindow: () => {},
   index: 0,
   label: "",
   style: {},

@@ -2,12 +2,12 @@ let currentId = 0;
 
 export default {
   create: (attrs = {}) => {
-    const { events = {} } = attrs;
+    const { contextMenu = {}, events = {} } = attrs;
 
     return {
       id: (currentId += 1),
       isOpaque: true,
-      type: "",
+      type: "DEFAULT",
       title: "",
       component: () => null,
       position: {
@@ -19,6 +19,7 @@ export default {
         height: 200,
       },
       ...attrs,
+      contextMenu: { items: [], width: 100, ...contextMenu },
       events: {
         onMove: () => {},
         ...events,

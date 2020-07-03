@@ -1,4 +1,4 @@
-import { colors, css } from "library/styles";
+import { colors, css } from "@library/styles";
 
 export default {
   view: {
