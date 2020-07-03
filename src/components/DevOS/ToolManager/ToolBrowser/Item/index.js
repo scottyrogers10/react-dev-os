@@ -1,28 +1,20 @@
-import React, { useState } from "react";
-import { View } from "@library/ui";
-import { useOnWindowEvent } from "@library/hooks";
+import React from "react";
+import { ViewRef } from "@library/ui";
+import { useHover } from "@library/hooks";
 import styles from "./styles";
 
 const Item = ({ closeWindow, configs, createWindow, index, label, style }) => {
-  const [isSelected, setIsSelected] = useState(false);
+  const { isHovered, ref } = useHover();
 
-  const handleMouseDown = () => setIsSelected(true);
-  const handleMouseUp = () => {
-    setIsSelected(false);
+  const handleClick = () => {
     closeWindow();
     createWindow(configs);
   };
 
-  useOnWindowEvent("mouseup", () => setIsSelected(false));
-
   return (
-    <View
-      style={{ ...styles.view, ...style, ...styles.stripe(index), ...styles.selected(isSelected) }}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-    >
+    <ViewRef style={{ ...styles.view, ...style, ...styles.stripe(index), ...styles.hovered(isHovered) }} onClick={handleClick} ref={ref}>
       {label}
-    </View>
+    </ViewRef>
   );
 };
 

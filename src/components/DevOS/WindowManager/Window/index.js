@@ -1,6 +1,7 @@
 import React from "react";
-import { ViewRef } from "@library/ui";
+import { Resizable, ViewRef } from "@library/ui";
 import { useContextMenu } from "@library/hooks";
+import resizeWindow from "@procedures/windows/resize";
 import store from "@store";
 import { useStore } from "@tools/hooks";
 import Content from "./Content";
@@ -18,16 +19,19 @@ const Window = ({ id, style }) => {
   });
 
   const handleMouseDown = () => !isFocused && store.dispatch("windows.focus", id);
+  const handleResize = (dimensions) => resizeWindow(dimensions, id);
 
   return (
     <ViewRef style={{ ...styles.view(state), ...style }} onMouseDown={handleMouseDown} ref={ref}>
-      <Header style={styles.header} id={id} isFocused={isFocused} />
-      <Content id={id} />
-      <ContextMenu
-        isOpen={isMenuOpen}
-        position={{ x: menuPosition.x - state.position.x, y: menuPosition.y - state.position.y }}
-        {...state.contextMenu}
-      />
+      <Resizable style={styles.resizable} onResize={handleResize} isActive={isFocused}>
+        <Header style={styles.header} id={id} isFocused={isFocused} />
+        <Content id={id} />
+        <ContextMenu
+          isOpen={isMenuOpen}
+          position={{ x: menuPosition.x - state.position.x, y: menuPosition.y - state.position.y }}
+          {...state.contextMenu}
+        />
+      </Resizable>
     </ViewRef>
   );
 };

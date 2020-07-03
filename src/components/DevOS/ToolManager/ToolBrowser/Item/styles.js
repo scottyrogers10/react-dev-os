@@ -15,7 +15,7 @@ export default {
 
     return isOddIndex && { backgroundColor: colors.gray[800] };
   },
-  selected: (isSelected) => {
-    return isSelected && { backgroundColor: colors.blue[800] };
+  hovered: (isHovered) => {
+    return isHovered && { backgroundColor: colors.blue[800] };
   },
 };
