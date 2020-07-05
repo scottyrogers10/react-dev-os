@@ -16,6 +16,8 @@ export default {
     display: "flex",
     flex: 1,
     flexDirection: "column",
+    minWidth: 0,
+    minHeight: 0,
   },
   header: {
     pointerEvents: "auto",

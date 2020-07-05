@@ -1,12 +1,12 @@
-const bottomRight = ({ elem, event }) => {
+const bottomRight = ({ elem, event, minSize }) => {
   const width = elem.width + event.movementX;
   const height = elem.height + event.movementY;
 
   return {
-    width: width > 1 ? width : 1,
-    height: height > 1 ? height : 1,
+    width: width > minSize.width ? width : elem.width,
+    height: height > minSize.height ? height : elem.height,
     top: elem.top,
-    left: elem.left
+    left: elem.left,
   };
 };
 

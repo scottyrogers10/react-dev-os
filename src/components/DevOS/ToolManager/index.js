@@ -1,13 +1,10 @@
-import React from "react";
-import { View } from "@library/ui";
 import { useOnWindowEvent } from "@library/hooks";
 import createWindow from "@procedures/windows/create";
 import ToolBrowser from "./ToolBrowser";
-import styles from "./styles";
 
 const T_KEYCODE = 84;
 
-const ToolManager = ({ style, tools }) => {
+const ToolManager = ({ tools }) => {
   const handleKeyUp = (event) => {
     const tagName = event.target.tagName.toUpperCase();
 
@@ -23,11 +20,10 @@ const ToolManager = ({ style, tools }) => {
 
   useOnWindowEvent("keyup", handleKeyUp);
 
-  return <View style={{ ...styles.view, ...style }} />;
+  return null;
 };
 
 ToolManager.defaultProps = {
-  style: {},
   tools: [],
 };
 

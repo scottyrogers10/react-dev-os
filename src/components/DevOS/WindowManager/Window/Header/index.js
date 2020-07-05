@@ -3,12 +3,11 @@ import { Text, View, ViewRef } from "@library/ui";
 import { useOnMove } from "@library/hooks";
 import { useStore } from "@tools/hooks";
 import closeWindow from "@procedures/windows/close";
-import moveWindow from "@procedures/windows/move";
 import ActionButtons from "./ActionButtons";
 import styles from "./styles";
 
-const Header = ({ id, isFocused, style }) => {
-  const { ref } = useOnMove({ onMove: (event) => moveWindow(event, id) });
+const Header = ({ id, isFocused, onMove, onMoveEnd, onMoveStart, style }) => {
+  const { ref } = useOnMove({ onMove, onMoveEnd, onMoveStart });
   const { isOpaque, title } = useStore((store) => store.getState("windows").byId[id]);
 
   const handleClose = () => isOpaque && closeWindow(id);
@@ -26,6 +25,9 @@ const Header = ({ id, isFocused, style }) => {
 Header.defaultProps = {
   id: null,
   isFocused: false,
+  onMove: () => {},
+  onMoveEnd: () => {},
+  onMoveStart: () => {},
   style: {},
 };
 

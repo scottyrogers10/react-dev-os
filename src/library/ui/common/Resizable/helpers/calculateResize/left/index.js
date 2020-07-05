@@ -1,11 +1,11 @@
-const left = ({ elem, event }) => {
+const left = ({ elem, event, minSize }) => {
   const width = elem.width - event.movementX;
 
   return {
-    width: width > 1 ? width : 1,
+    width: width > minSize.width ? width : elem.width,
     height: elem.height,
     top: elem.top,
-    left: elem.left + event.movementX
+    left: width > minSize.width ? elem.left + event.movementX : elem.left,
   };
 };
 

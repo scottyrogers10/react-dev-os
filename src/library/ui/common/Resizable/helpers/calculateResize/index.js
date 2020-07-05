@@ -18,15 +18,11 @@ const calculators = {
   topRight,
 };
 
-const calculateResize = ({ elem, event, handle }) => {
-  return calculators[handle]({
-    elem: {
-      width: elem.current.offsetWidth,
-      height: elem.current.offsetHeight,
-      top: elem.current.offsetTop,
-      left: elem.current.offsetLeft,
-    },
+const calculateResize = ({ elem, event, handleType, minSize }) => {
+  return calculators[handleType]({
+    elem: elem.getBoundingClientRect(),
     event,
+    minSize,
   });
 };
 

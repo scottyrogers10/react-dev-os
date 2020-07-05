@@ -8,6 +8,7 @@ export default {
     fontWeight: "700",
     color: colors.white,
     ...css.userSelect.none,
+    ...css.textOverflow.ellipsis,
   },
   stripe: (index) => {
     const isOddIndex = index % 2 !== 0;

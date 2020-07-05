@@ -1,11 +1,11 @@
-const bottom = ({ elem, event }) => {
+const bottom = ({ elem, event, minSize }) => {
   const height = elem.height + event.movementY;
 
   return {
     width: elem.width,
-    height: height > 1 ? height : 1,
+    height: height > minSize.height ? height : elem.height,
     top: elem.top,
-    left: elem.left
+    left: elem.left,
   };
 };
 

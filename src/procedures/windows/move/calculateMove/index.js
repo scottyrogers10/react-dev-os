@@ -7,26 +7,25 @@ const checkWindowTop = (ctx) => {
 };
 
 const checkWindowBottom = (ctx) => {
-  const maxBottom = window.innerHeight - 23;
+  const maxBottom = window.innerHeight - 25;
   const position = { x: ctx.position.x, y: ctx.position.y > maxBottom ? maxBottom : ctx.position.y };
   return { ...ctx, position };
 };
 
 const checkWindowLeft = (ctx) => {
-  const maxLeft = -(ctx.size.width - 23);
+  const maxLeft = -(ctx.size.width - 25);
   const position = { x: ctx.position.x < maxLeft ? maxLeft : ctx.position.x, y: ctx.position.y };
   return { ...ctx, position };
 };
 
 const checkWindowRight = (ctx) => {
-  const maxRight = window.innerWidth - 23;
+  const maxRight = window.innerWidth - 25;
   const position = { x: ctx.position.x > maxRight ? maxRight : ctx.position.x, y: ctx.position.y };
   return { ...ctx, position };
 };
 
-export default ({ event, window }) => {
-  const prevTop = window.position.y;
-  const prevLeft = window.position.x;
+export default ({ elem, event, window }) => {
+  const { top: prevTop, left: prevLeft } = elem.getBoundingClientRect();
 
   return pipe({
     position: {
