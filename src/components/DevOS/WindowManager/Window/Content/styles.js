@@ -10,7 +10,7 @@ export default {
       borderRadius: "0px 0px 6px 6px",
       backgroundColor: colors.gray[900],
       overflow: "hidden",
-      pointerEvents: isMoving || isResizing ? "none" : "auto",
+      pointerEvents: (isMoving || isResizing) && "none",
     };
   },
 };
