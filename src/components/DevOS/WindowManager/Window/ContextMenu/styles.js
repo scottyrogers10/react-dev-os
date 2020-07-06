@@ -15,6 +15,7 @@ export default {
       backgroundColor: colors.gray[800],
       overflow: "hidden",
       padding: "6px 0px",
+      zIndex: 1,
     };
   },
 };

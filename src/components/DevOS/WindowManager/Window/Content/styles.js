@@ -4,6 +4,7 @@ export default {
   view: ({ isMoving, isResizing }) => {
     return {
       flex: 1,
+      position: "relative",
       borderRight: `1px solid ${colors.gray[700]}`,
       borderBottom: `1px solid ${colors.gray[700]}`,
       borderLeft: `1px solid ${colors.gray[700]}`,
