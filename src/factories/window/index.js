@@ -1,13 +1,13 @@
 let currentId = 0;
 
 export default {
-  create: (attrs = {}) => {
+  create: (attrs = {}, label = "") => {
     const { contextMenu = {}, events = {} } = attrs;
 
     return {
       id: (currentId += 1),
       isOpaque: true,
-      type: "DEFAULT",
+      type: label.toUpperCase().replace(/\s+/g, "_"),
       title: "",
       component: () => null,
       position: {

@@ -8,7 +8,7 @@ const Item = ({ closeWindow, configs, createWindow, index, label, style }) => {
 
   const handleClick = () => {
     closeWindow();
-    createWindow(configs);
+    createWindow(configs, label);
   };
 
   return (
