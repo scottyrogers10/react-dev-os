@@ -5,12 +5,12 @@ import createWindow from "@procedures/windows/create";
 import store from "@store";
 import styles from "./styles";
 
-const Content = memo(({ id, isMoving, isResizing, style }) => {
+const Content = memo(({ id, style }) => {
   const Component = store.getState("windows").byId[id].component;
   const handleClose = () => closeWindow(id);
 
   return (
-    <View style={{ ...styles.view({ isMoving, isResizing }), ...style }}>
+    <View style={{ ...styles.view, ...style }}>
       <Component closeWindow={handleClose} createWindow={createWindow} />
     </View>
   );
@@ -18,8 +18,6 @@ const Content = memo(({ id, isMoving, isResizing, style }) => {
 
 Content.defaultProps = {
   id: null,
-  isMoving: false,
-  isResizing: false,
   style: {},
 };
 

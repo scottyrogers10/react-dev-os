@@ -3,11 +3,12 @@ import { useMergeState } from "@library/hooks";
 
 export default ({ isActive }) => {
   const ref = useRef(null);
-  const [state, setState] = useMergeState({ isOpen: false, position: { x: 0, y: 0 } });
+  const [state, setState] = useMergeState({ event: null, isOpen: false, position: { x: 0, y: 0 } });
 
   const handleContextMenu = (event) => {
     if (isActive && !state.isOpen) {
       setState({
+        event,
         isOpen: true,
         position: { x: event.clientX, y: event.clientY },
       });
