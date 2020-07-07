@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { Resizable, ViewRef } from "@library/ui";
 import { useContextMenu } from "@library/hooks";
 import moveWindow from "@procedures/windows/move";
@@ -11,6 +11,7 @@ import Header from "./Header";
 import styles from "./styles";
 
 const Window = ({ id, style }) => {
+  const contentElem = useRef(null);
   const state = useStore((store) => store.getState("windows").byId[id]);
   const { event: contextMenuEvent, isOpen: isMenuOpen, position: menuPosition, ref } = useContextMenu({
     isActive: state.contextMenu.items.length > 0,
@@ -24,21 +25,39 @@ const Window = ({ id, style }) => {
   const handleMouseDown = () => !isFocused && store.dispatch("windows.focus", id);
 
   const handleMove = (event) => moveWindow({ elem: ref.current, event, id });
+  const handleMoveStart = () => (contentElem.current.style.pointerEvents = "none");
   const handleMoveEnd = (event) => {
     moveWindow({ elem: ref.current, event, id, shouldDispatch: true });
+    contentElem.current.style.pointerEvents = "";
   };
 
   const handleResize = (dimensions) => resizeWindow({ dimensions, elem: ref.current, id });
+  const handleResizeStart = () => (contentElem.current.style.pointerEvents = "none");
   const handleResizeEnd = () => {
     const { top, left, width, height } = ref.current.getBoundingClientRect();
     resizeWindow({ dimensions: { width, height, top, left }, elem: ref.current, id, shouldDispatch: true });
+    contentElem.current.style.pointerEvents = "";
   };
 
   return (
     <ViewRef style={{ ...styles.view(state), ...style }} onMouseDown={handleMouseDown} ref={ref}>
-      <Resizable style={styles.resizable} minHeight={25} minWidth={95} onResize={handleResize} onResizeEnd={handleResizeEnd}>
-        <Header style={styles.header} id={id} isFocused={isFocused} onMove={handleMove} onMoveEnd={handleMoveEnd} />
-        <Content id={id} />
+      <Resizable
+        style={styles.resizable}
+        minHeight={25}
+        minWidth={95}
+        onResize={handleResize}
+        onResizeEnd={handleResizeEnd}
+        onResizeStart={handleResizeStart}
+      >
+        <Header
+          style={styles.header}
+          id={id}
+          isFocused={isFocused}
+          onMove={handleMove}
+          onMoveEnd={handleMoveEnd}
+          onMoveStart={handleMoveStart}
+        />
+        <Content id={id} elemRef={contentElem} />
         <ContextMenu
           event={contextMenuEvent}
           isOpen={isMenuOpen}
