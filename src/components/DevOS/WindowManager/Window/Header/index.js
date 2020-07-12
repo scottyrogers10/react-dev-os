@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, ViewRef } from "@library/ui";
 import { useOnMove } from "@library/hooks";
 import { useStore } from "@tools/hooks";
+import store from "@store";
 import closeWindow from "@procedures/windows/close";
 import ActionButtons from "./ActionButtons";
 import styles from "./styles";
