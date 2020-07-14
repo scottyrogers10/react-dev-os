@@ -3,10 +3,10 @@ import resizeWindow from "@procedures/windows/resize";
 export default ({ contentRef, id, windowRef }) => {
   const handleResize = (dimensions, event) => resizeWindow({ dimensions, elem: windowRef.current, event, id });
 
-  const handleResizeEnd = () => {
+  const handleResizeEnd = (event) => {
     if (windowRef.current) {
       const dimensions = windowRef.current.getBoundingClientRect();
-      resizeWindow({ dimensions, elem: windowRef.current, id, shouldDispatch: true });
+      resizeWindow({ dimensions, elem: windowRef.current, event, id, shouldDispatch: true });
     }
 
     contentRef.current && (contentRef.current.style.pointerEvents = "");
