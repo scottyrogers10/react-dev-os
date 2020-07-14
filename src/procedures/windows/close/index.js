@@ -1,9 +1,9 @@
 import store from "@store";
+import getNextFocusedId from "./get-next-focused-id";
 
 export default (id) => {
-  const windows = store.getState("windows");
-  const [nextId] = windows.orderedIds.slice(-2, -1);
+  const { byId } = store.dispatch("windows.remove", id);
+  const nextFocusedId = getNextFocusedId(byId);
 
-  store.dispatch("windows.remove", id);
-  store.dispatch("windows.focus", nextId);
+  nextFocusedId && store.dispatch("windows.focus", nextFocusedId);
 };

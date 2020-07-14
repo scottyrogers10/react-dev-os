@@ -1,7 +1,14 @@
 export default ({ prevState }, id) => {
-  const orderedIds = [...prevState.orderedIds].sort(function (a, b) {
-    return a === id ? 1 : b === id ? -1 : 0;
-  });
+  const prevById = { ...prevState.byId };
+  const prevFocusedId = prevState.focusedId;
+  const prevFocusedWindow = prevById[prevFocusedId];
 
-  return { ...prevState, orderedIds };
+  const byId = { ...prevById };
+  const maxRenderIndex = prevState.maxRenderIndex + 1;
+  const nextFocusedWindow = prevById[id];
+
+  prevFocusedWindow && (byId[prevFocusedId] = { ...prevFocusedWindow, isFocused: false });
+  byId[id] = { ...nextFocusedWindow, isFocused: true, renderIndex: maxRenderIndex };
+
+  return { ...prevState, byId, focusedId: id, maxRenderIndex };
 };

@@ -5,19 +5,19 @@ import createWindow from "@procedures/windows/create";
 import store from "@store";
 import styles from "./styles";
 
-const Content = memo(({ elemRef, id, style }) => {
+const Content = memo(({ contentRef, id, style }) => {
   const Component = store.getState("windows").byId[id].component;
   const handleClose = () => closeWindow(id);
 
   return (
-    <ViewRef style={{ ...styles.view, ...style }} ref={elemRef}>
+    <ViewRef style={{ ...styles.view, ...style }} ref={contentRef}>
       <Component closeWindow={handleClose} createWindow={createWindow} />
     </ViewRef>
   );
 });
 
 Content.defaultProps = {
-  elemRef: null,
+  contentRef: null,
   id: null,
   style: {},
 };

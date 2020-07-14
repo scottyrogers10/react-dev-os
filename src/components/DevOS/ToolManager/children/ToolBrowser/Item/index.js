@@ -3,13 +3,10 @@ import { ViewRef } from "@library/ui";
 import { useHover } from "@library/hooks";
 import styles from "./styles";
 
-const Item = ({ closeWindow, configs, createWindow, index, label, style }) => {
+const Item = ({ configs, createWindow, index, label, style }) => {
   const { isHovered, ref } = useHover();
 
-  const handleClick = () => {
-    closeWindow();
-    createWindow(configs, label);
-  };
+  const handleClick = () => createWindow(configs);
 
   return (
     <ViewRef style={{ ...styles.view, ...style, ...styles.stripe(index), ...styles.hovered(isHovered) }} onClick={handleClick} ref={ref}>
@@ -19,7 +16,6 @@ const Item = ({ closeWindow, configs, createWindow, index, label, style }) => {
 };
 
 Item.defaultProps = {
-  closeWindow: () => {},
   configs: {},
   createWindow: () => {},
   index: 0,

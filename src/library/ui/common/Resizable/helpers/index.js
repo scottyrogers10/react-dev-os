@@ -1,3 +1,3 @@
-import calculateResize from "./calculateResize";
+import calculateResize from "./calculate-resize";
 
 export { calculateResize };

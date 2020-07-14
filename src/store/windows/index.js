@@ -13,6 +13,8 @@ export default {
   name: "windows",
   state: {
     byId: {},
-    orderedIds: [],
+    focusedId: null,
+    ids: [],
+    maxRenderIndex: 0,
   },
 };

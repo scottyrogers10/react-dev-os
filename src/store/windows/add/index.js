@@ -1,9 +1,6 @@
 export default ({ prevState }, window) => {
-  const byId = { ...prevState.byId };
-  const orderedIds = [...prevState.orderedIds];
+  const byId = { ...prevState.byId, [window.id]: { ...window } };
+  const ids = [...prevState.ids, window.id];
 
-  byId[window.id] = window;
-  orderedIds.push(window.id);
-
-  return { ...prevState, byId, orderedIds };
+  return { ...prevState, byId, ids };
 };

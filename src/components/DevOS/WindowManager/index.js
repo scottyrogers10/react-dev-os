@@ -5,7 +5,7 @@ import Window from "./Window";
 import styles from "./styles";
 
 const WindowManager = ({ style }) => {
-  const windowIds = useStore((store) => store.getState("windows").orderedIds);
+  const windowIds = useStore((store) => store.getState("windows").ids);
 
   return (
     <View style={{ ...styles.view, ...style }}>

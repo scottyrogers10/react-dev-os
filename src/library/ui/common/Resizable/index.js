@@ -5,12 +5,12 @@ import { calculateResize } from "./helpers";
 import styles from "./styles";
 
 const Resizable = ({ children, isActive, minHeight, minWidth, onResize, onResizeEnd, onResizeStart, style }) => {
-  const elem = useRef(null);
+  const resizableRef = useRef(null);
   const handleResize = (event, handleType) =>
-    onResize(calculateResize({ elem: elem.current, event, handleType, minSize: { height: minHeight, width: minWidth } }));
+    onResize(calculateResize({ elem: resizableRef.current, event, handleType, minSize: { height: minHeight, width: minWidth } }), event);
 
   return (
-    <ViewRef style={{ ...styles.view, ...style }} ref={elem}>
+    <ViewRef style={{ ...styles.view, ...style }} ref={resizableRef}>
       {children}
       {isActive && <ResizableHandles onResize={handleResize} onResizeEnd={onResizeEnd} onResizeStart={onResizeStart} />}
     </ViewRef>

@@ -1,13 +1,12 @@
 let currentId = 0;
 
 export default {
-  create: (attrs = {}, label = "") => {
-    const { contextMenu = {}, events = {} } = attrs;
+  create: (attrs = {}) => {
+    const { events = {} } = attrs;
 
     return {
-      id: (currentId += 1),
       isOpaque: true,
-      type: label.toUpperCase().replace(/\s+/g, "_"),
+      type: "",
       title: "",
       component: () => null,
       position: {
@@ -19,11 +18,14 @@ export default {
         height: 200,
       },
       ...attrs,
-      contextMenu: { items: [], width: 100, ...contextMenu },
       events: {
         onMove: () => {},
+        onResize: () => {},
         ...events,
       },
+      id: (currentId += 1),
+      isFocused: false,
+      renderIndex: 0,
     };
   },
 };

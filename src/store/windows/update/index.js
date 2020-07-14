@@ -1,8 +1,9 @@
 export default ({ prevState }, updatedWindow) => {
-  const byId = { ...prevState.byId };
-  const prevWindow = byId[updatedWindow.id];
+  const prevById = prevState.byId;
+  const prevWindow = prevById[updatedWindow.id];
+  const byId = { ...prevById };
 
-  byId[updatedWindow.id] = { ...prevWindow, ...updatedWindow };
+  byId[prevWindow.id] = { ...prevWindow, ...updatedWindow };
 
   return { ...prevState, byId };
 };

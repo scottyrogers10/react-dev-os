@@ -8,7 +8,7 @@ export default (store) => {
       let isCanceled = false;
 
       const subscriber = store.subscribe((currentStore) => {
-        setTimeout(() => !isCanceled && setState(mapStoreToState(currentStore)), 0);
+        !isCanceled && setState(mapStoreToState(currentStore));
       });
 
       return () => {
