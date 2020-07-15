@@ -11,7 +11,7 @@ const Content = memo(({ contentRef, id, style }) => {
 
   return (
     <ViewRef style={{ ...styles.view, ...style }} ref={contentRef}>
-      <Component closeWindow={handleClose} createWindow={createWindow} />
+      <Component closeWindow={handleClose} createWindow={createWindow} __id={id} />
     </ViewRef>
   );
 });
