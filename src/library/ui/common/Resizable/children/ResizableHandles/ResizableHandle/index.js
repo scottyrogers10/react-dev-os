@@ -20,7 +20,7 @@ const ResizableHandle = ({ cursor, onResize, onResizeEnd, onResizeStart, style }
   const handleMouseMove = (event) => {
     if (isMouseDown) {
       event.stopImmediatePropagation();
-      onResize(event);
+      requestAnimationFrame(() => onResize(event));
     }
   };
 

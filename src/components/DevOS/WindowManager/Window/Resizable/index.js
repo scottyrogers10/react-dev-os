@@ -9,7 +9,7 @@ const Resizable = ({ children, contentRef, id, windowRef, style }) => {
   return (
     <UIResizable
       style={{ ...style, ...styles.resizable }}
-      minHeight={25}
+      minHeight={24}
       minWidth={95}
       onResize={handleResize}
       onResizeEnd={handleResizeEnd}
