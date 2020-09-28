@@ -7,8 +7,9 @@ export default {
     alignItems: "center",
   },
   icon: {
-    height: "128px",
-    width: "128px",
+    height: "96px",
+    width: "96px",
+    marginBottom: "8px",
   },
   label: {
     fontSize: "20px",
