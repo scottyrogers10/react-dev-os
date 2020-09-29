@@ -16,11 +16,12 @@ export default {
     };
   },
   toolList: {
-    width: "290px",
+    width: "270px",
     height: "100%",
   },
   toolInfo: {
-    flex: 1,
+    height: "100%",
+    width: "410px",
     padding: "24px",
   },
 };
