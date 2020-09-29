@@ -1,20 +1,33 @@
+import React from "react";
 import { useOnWindowEvent } from "@library/hooks";
-import { createToolBrowser } from "./helpers";
+import store from "@store";
+import { useStore } from "@tools/hooks";
+import ToolBrowser from "./ToolBrowser";
+import styles from "./styles";
 
-const ToolManager = ({ tools }) => {
+const T_KEYCODE = 84;
+
+const ToolManager = ({ tools, style }) => {
+  const formattedTools = tools.map((tool) => (typeof tool === "function" ? tool() : tool));
+  const isOpen = useStore((store) => store.getState("toolBrowser").isOpen);
+
   const handleKeyUp = (event) => {
     const keyCode = event.keyCode;
     const tagName = event.target.tagName.toUpperCase();
-    createToolBrowser({ keyCode, tagName, tools });
+
+    if (tagName !== "INPUT" && tagName !== "TEXTAREA" && keyCode === T_KEYCODE) {
+      store.dispatch("toolBrowser.toggle");
+    }
   };
 
   useOnWindowEvent("keyup", handleKeyUp);
 
-  return null;
+  return isOpen && <ToolBrowser style={{ ...styles.toolBrowser, ...style }} tools={formattedTools} />;
 };
 
 ToolManager.defaultProps = {
   tools: [],
+  style: {},
 };
 
 export default ToolManager;
