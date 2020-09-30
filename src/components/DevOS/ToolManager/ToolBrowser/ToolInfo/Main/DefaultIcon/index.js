@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "@library/ui";
-import icon from "./assets/icon-128x128.png";
+import icon from "./assets/icon-96x96.png";
 import styles from "./styles";
 
 const DefaultIcon = ({ style }) => {
