@@ -28,13 +28,24 @@ const ToolBrowser = ({ style, tools }) => {
 
   const handleKeyUp = (event) => {
     const keyCode = event.keyCode;
-    keyCode === ARROW_DOWN && updateSelectedIndex(selectedIndex + 1);
-    keyCode === ARROW_UP && updateSelectedIndex(selectedIndex - 1);
+
+    keyCode === ARROW_DOWN && updateSelectedIndex(selectedIndex + 1, event);
+    keyCode === ARROW_UP && updateSelectedIndex(selectedIndex - 1, event);
     keyCode === ENTER && openWindow(tools[selectedIndex].window);
     keyCode === ESCAPE && store.dispatch("toolBrowser.close");
   };
 
+  const handleKeyDown = (event) => {
+    const keyCode = event.keyCode;
+
+    if (keyCode === ARROW_DOWN || keyCode === ARROW_UP) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  };
+
   useOnWindowEvent("keyup", handleKeyUp);
+  useOnWindowEvent("keydown", handleKeyDown);
 
   return (
     <View style={{ ...styles.view(window.innerWidth / 2), ...style }}>

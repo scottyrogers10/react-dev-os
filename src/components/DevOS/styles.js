@@ -14,5 +14,9 @@ export default {
     padding: 0,
     overflow: "hidden",
     pointerEvents: "none",
+    color: "#424242",
+    fontSize: "14px",
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji",
   },
 };

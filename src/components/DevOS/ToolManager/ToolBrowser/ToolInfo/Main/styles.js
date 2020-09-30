@@ -9,7 +9,7 @@ export default {
   icon: {
     height: "96px",
     width: "96px",
-    marginBottom: "8px",
+    marginBottom: "10px",
   },
   label: {
     fontSize: "20px",
