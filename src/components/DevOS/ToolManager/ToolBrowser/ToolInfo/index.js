@@ -1,14 +1,14 @@
 import React from "react";
 import { View } from "@library/ui";
-import Main from "./Main";
-import Secondary from "./Secondary";
+import Overview from "./Overview";
+import Details from "./Details";
 import styles from "./styles";
 
 const ToolInfo = ({ selectedTool, style }) => {
   return (
     <View style={{ ...styles.view, ...style }}>
-      <Main style={styles.main} {...selectedTool} />
-      <Secondary style={styles.secondary} {...selectedTool} />
+      <Overview style={styles.overview} {...selectedTool} />
+      <Details style={styles.details} {...selectedTool} />
     </View>
   );
 };

@@ -5,6 +5,7 @@ import createWindow from "@procedures/windows/create";
 import store from "@store";
 import ToolInfo from "./ToolInfo";
 import ToolList from "./ToolList";
+import { preventWindowScrollOnArrowKey } from "./helpers";
 import styles from "./styles";
 
 const ARROW_DOWN = 40;
@@ -29,23 +30,14 @@ const ToolBrowser = ({ style, tools }) => {
   const handleKeyUp = (event) => {
     const keyCode = event.keyCode;
 
-    keyCode === ARROW_DOWN && updateSelectedIndex(selectedIndex + 1, event);
-    keyCode === ARROW_UP && updateSelectedIndex(selectedIndex - 1, event);
+    keyCode === ARROW_DOWN && updateSelectedIndex(selectedIndex + 1);
+    keyCode === ARROW_UP && updateSelectedIndex(selectedIndex - 1);
     keyCode === ENTER && openWindow(tools[selectedIndex].window);
     keyCode === ESCAPE && store.dispatch("toolBrowser.close");
   };
 
-  const handleKeyDown = (event) => {
-    const keyCode = event.keyCode;
-
-    if (keyCode === ARROW_DOWN || keyCode === ARROW_UP) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
-  };
-
   useOnWindowEvent("keyup", handleKeyUp);
-  useOnWindowEvent("keydown", handleKeyDown);
+  useOnWindowEvent("keydown", preventWindowScrollOnArrowKey);
 
   return (
     <View style={{ ...styles.view(window.innerWidth / 2), ...style }}>

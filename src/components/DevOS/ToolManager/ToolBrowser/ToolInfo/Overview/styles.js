@@ -7,9 +7,13 @@ export default {
     alignItems: "center",
   },
   icon: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     height: "96px",
     width: "96px",
     marginBottom: "10px",
+    overflow: "hidden",
   },
   label: {
     fontSize: "20px",

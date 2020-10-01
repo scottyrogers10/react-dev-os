@@ -3,7 +3,7 @@ import { Text, View } from "@library/ui";
 import Metadata from "./Metadata";
 import styles from "./styles";
 
-const Secondary = ({ author, createdDate, description, style }) => {
+const Details = ({ author, createdDate, description, style }) => {
   return (
     <View style={{ ...styles.view, ...style }}>
       <Text style={styles.description}>{description}</Text>
@@ -14,11 +14,11 @@ const Secondary = ({ author, createdDate, description, style }) => {
   );
 };
 
-Secondary.defaultProps = {
+Details.defaultProps = {
   author: "",
   createdDate: "",
   description: "",
   style: {},
 };
 
-export default Secondary;
+export default Details;

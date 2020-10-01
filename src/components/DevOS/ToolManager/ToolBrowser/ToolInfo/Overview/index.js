@@ -3,7 +3,7 @@ import { Text, View } from "@library/ui";
 import DefaultIcon from "./DefaultIcon";
 import styles from "./styles";
 
-const Main = ({ icon, label, style, version }) => {
+const Overview = ({ icon, label, style, version }) => {
   const Icon = icon || DefaultIcon;
 
   return (
@@ -17,11 +17,11 @@ const Main = ({ icon, label, style, version }) => {
   );
 };
 
-Main.defaultProps = {
+Overview.defaultProps = {
   icon: null,
   label: "",
   style: {},
   version: "",
 };
 
-export default Main;
+export default Overview;

@@ -3,10 +3,10 @@ export default {
     display: "flex",
     flexDirection: "column",
   },
-  main: {
+  overview: {
     padding: "16px 0px 28px 0px",
   },
-  secondary: {
+  details: {
     paddingTop: "18px",
   },
 };

@@ -17,8 +17,6 @@ const ToolManager = ({ tools, style }) => {
 
     if (tagName !== "INPUT" && tagName !== "TEXTAREA" && keyCode === T_KEYCODE) {
       store.dispatch("toolBrowser.toggle");
-      event.preventDefault();
-      event.stopPropagation();
     }
   };
 
