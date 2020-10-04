@@ -7,11 +7,11 @@ import styles from "./styles";
 
 const Content = memo(({ contentRef, id, style }) => {
   const Component = store.getState("windows").byId[id].component;
-  const handleClose = () => closeWindow(id);
+  const devOS = { closeWindow: () => closeWindow(id), createWindow, id, theme: store.getState("ui").theme };
 
   return (
     <ViewRef style={{ ...styles.view, ...style }} ref={contentRef}>
-      <Component closeWindow={handleClose} createWindow={createWindow} __id={id} />
+      <Component devOS={devOS} />
     </ViewRef>
   );
 });

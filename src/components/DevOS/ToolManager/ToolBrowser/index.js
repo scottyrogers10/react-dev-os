@@ -3,8 +3,7 @@ import { useOnWindowEvent } from "@library/hooks";
 import { View } from "@library/ui";
 import createWindow from "@procedures/windows/create";
 import store from "@store";
-import ToolInfo from "./ToolInfo";
-import ToolList from "./ToolList";
+import { ToolInfo, ToolList } from "./children";
 import { preventWindowScrollOnArrowKey } from "./helpers";
 import styles from "./styles";
 
@@ -13,8 +12,9 @@ const ARROW_UP = 38;
 const ENTER = 13;
 const ESCAPE = 27;
 
-const ToolBrowser = ({ style, tools }) => {
+const ToolBrowser = ({ style, themeColors, tools }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [centerScreen, setCenterScreen] = useState(window.innerWidth / 2);
 
   const openWindow = (configs) => {
     store.dispatch("toolBrowser.close");
@@ -36,12 +36,17 @@ const ToolBrowser = ({ style, tools }) => {
     keyCode === ESCAPE && store.dispatch("toolBrowser.close");
   };
 
+  const handleScreenResize = () => {
+    setCenterScreen(window.innerWidth / 2);
+  };
+
   useOnWindowEvent("keyup", handleKeyUp);
   useOnWindowEvent("keydown", preventWindowScrollOnArrowKey);
+  useOnWindowEvent("resize", handleScreenResize);
 
   return (
-    <View style={{ ...styles.view(window.innerWidth / 2), ...style }}>
-      <ToolList style={styles.toolList} openWindow={openWindow} selectedIndex={selectedIndex} tools={tools} />
+    <View style={{ ...styles.view(centerScreen), ...style }}>
+      <ToolList style={styles.toolList} openWindow={openWindow} selectedIndex={selectedIndex} themeColors={themeColors} tools={tools} />
       <ToolInfo style={styles.toolInfo} selectedTool={tools[selectedIndex]} />
     </View>
   );
@@ -49,6 +54,7 @@ const ToolBrowser = ({ style, tools }) => {
 
 ToolBrowser.defaultProps = {
   style: {},
+  themeColors: {},
   tools: [],
 };
 

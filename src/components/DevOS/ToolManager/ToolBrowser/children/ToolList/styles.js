@@ -20,9 +20,11 @@ export default {
     overflowY: "auto",
     overflowX: "none",
   },
-  item: (isSelected) => {
+  item: (isSelected, themeColors) => {
+    const highlightColor = themeColors.primaryColor || colors.blue[800];
+
     return {
-      backgroundColor: isSelected && colors.blue[800],
+      backgroundColor: isSelected && highlightColor,
       height: "28px",
       lineHeight: "28px",
       padding: "0px 24px",

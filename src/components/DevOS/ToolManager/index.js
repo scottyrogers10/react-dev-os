@@ -7,7 +7,7 @@ import styles from "./styles";
 
 const T_KEYCODE = 84;
 
-const ToolManager = ({ tools, style }) => {
+const ToolManager = ({ style, tools }) => {
   const formattedTools = tools.map((tool) => (typeof tool === "function" ? tool() : tool));
   const isOpen = useStore((store) => store.getState("toolBrowser").isOpen);
 
@@ -26,8 +26,8 @@ const ToolManager = ({ tools, style }) => {
 };
 
 ToolManager.defaultProps = {
-  tools: [],
   style: {},
+  tools: [],
 };
 
 export default ToolManager;
