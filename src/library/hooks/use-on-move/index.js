@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default ({ onMove = () => {}, onMoveEnd = () => {}, onMoveStart = () => {} }) => {
   let { current: isMouseDown } = useRef(false);
-  const ref = useRef(null);
 
   const handleMouseMove = (event) => isMouseDown && onMove(event);
 
@@ -20,16 +19,9 @@ export default ({ onMove = () => {}, onMoveEnd = () => {}, onMoveStart = () => {
     window.addEventListener("mousemove", handleMouseMove);
   };
 
-  useEffect(() => {
-    const elem = ref.current;
+  const events = {
+    onMouseDown: handleMouseDown,
+  };
 
-    if (elem) {
-      elem.addEventListener("mousedown", handleMouseDown);
-      return () => {
-        elem.removeEventListener("mousedown", handleMouseDown);
-      };
-    }
-  }, [ref.current]);
-
-  return { ref };
+  return { events };
 };

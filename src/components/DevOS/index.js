@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { View } from "@library/ui";
+import { View } from "@library/components";
 import store from "@store";
-import ToolManager from "./ToolManager";
-import WindowManager from "./WindowManager";
+import ToolsManager from "./ToolsManager";
+import UIWindowsManager from "./UIWindowsManager";
 import styles from "./styles";
 
 const DevOS = ({ style, themeColors, tools }) => {
@@ -12,8 +12,8 @@ const DevOS = ({ style, themeColors, tools }) => {
 
   return (
     <View style={{ ...styles.view, ...style }}>
-      <ToolManager tools={tools} />
-      <WindowManager />
+      <ToolsManager tools={tools} />
+      <UIWindowsManager />
     </View>
   );
 };
