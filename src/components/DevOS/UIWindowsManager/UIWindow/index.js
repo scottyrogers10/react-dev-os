@@ -16,7 +16,7 @@ const UIWindow = ({ id, style }) => {
 
   return (
     <ViewRef style={{ ...styles.view(state), ...style }} onMouseDown={handleMouseDown} ref={uiWindowRef}>
-      <Resizable id={id} contentRef={contentRef} uiWindowRef={uiWindowRef}>
+      <Resizable id={id} contentRef={contentRef} minSize={state.minSize} uiWindowRef={uiWindowRef}>
         <Header style={styles.header} id={id} contentRef={contentRef} uiWindowRef={uiWindowRef} />
         <Content id={id} contentRef={contentRef} />
       </Resizable>

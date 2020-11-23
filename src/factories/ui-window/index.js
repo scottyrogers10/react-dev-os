@@ -14,8 +14,12 @@ export default {
         y: 24,
       },
       size: {
-        width: 300,
         height: 200,
+        width: 300,
+      },
+      minSize: {
+        height: 24,
+        width: 95,
       },
       ...attrs,
       events: {

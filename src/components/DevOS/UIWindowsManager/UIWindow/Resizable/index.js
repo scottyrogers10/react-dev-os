@@ -3,14 +3,14 @@ import { Resizable as LibResizable } from "@library/components";
 import { onResizeHandlers } from "./helpers";
 import styles from "./styles";
 
-const Resizable = ({ children, contentRef, id, uiWindowRef, style }) => {
+const Resizable = ({ children, contentRef, id, minSize, uiWindowRef, style }) => {
   const { handleResize, handleResizeEnd, handleResizeStart } = onResizeHandlers({ contentRef, id, uiWindowRef });
 
   return (
     <LibResizable
       style={{ ...style, ...styles.resizable }}
-      minHeight={24}
-      minWidth={95}
+      minHeight={minSize.height}
+      minWidth={minSize.width}
       onResize={handleResize}
       onResizeEnd={handleResizeEnd}
       onResizeStart={handleResizeStart}
@@ -24,6 +24,7 @@ Resizable.defaultProps = {
   children: null,
   contentRef: null,
   id: null,
+  minSize: { height: 0, width: 0 },
   uiWindowRef: null,
   style: {},
 };
