@@ -10,7 +10,6 @@ import styles from "./styles";
 const ARROW_DOWN = 40;
 const ARROW_UP = 38;
 const ENTER = 13;
-const ESCAPE = 27;
 
 const ToolBrowser = ({ style, tools }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -34,7 +33,6 @@ const ToolBrowser = ({ style, tools }) => {
     keyCode === ARROW_DOWN && updateSelectedIndex(selectedIndex + 1);
     keyCode === ARROW_UP && updateSelectedIndex(selectedIndex - 1);
     keyCode === ENTER && openUIWindow(tools[selectedIndex].window);
-    keyCode === ESCAPE && store.dispatch("toolBrowser.close");
   };
 
   const handleMouseDown = (event) => {
