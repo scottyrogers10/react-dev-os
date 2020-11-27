@@ -1,19 +1,13 @@
 import React, { useEffect } from "react";
-import { hotKeys } from "@configs";
 import { View } from "@library/components";
-import { useKeyboardShortcut } from "@library/hooks";
+import { useOnWindowKeyboardShortcuts } from "@library/hooks";
 import store from "@store";
-import ToolsManager from "./ToolsManager";
-import UIWindowsManager from "./UIWindowsManager";
+import { ToolsManager, WindowsManager } from "./children";
+import { getShortcuts } from "./helpers";
 import styles from "./styles";
 
-const DevOS = ({ style, themeColors, tools }) => {
-  const handleCloseAll = () => {
-    store.dispatch("toolBrowser.close");
-    store.dispatch("uiWindows.removeAll");
-  };
-
-  useKeyboardShortcut(hotKeys.closeAll, handleCloseAll);
+const DevOS = ({ hotKeys, style, themeColors, tools }) => {
+  useOnWindowKeyboardShortcuts(getShortcuts(hotKeys));
 
   useEffect(() => {
     themeColors && store.dispatch("ui.updateTheme", { colors: themeColors });
@@ -22,12 +16,13 @@ const DevOS = ({ style, themeColors, tools }) => {
   return (
     <View style={{ ...styles.view, ...style }}>
       <ToolsManager tools={tools} />
-      <UIWindowsManager />
+      <WindowsManager />
     </View>
   );
 };
 
 DevOS.defaultProps = {
+  hotKeys: {},
   style: {},
   themeColors: null,
   tools: [],
