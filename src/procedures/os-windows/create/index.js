@@ -1,5 +1,5 @@
 import store from "@store";
-import osWindowFactory from "@factories/os-window";
+import { osWindow as osWindowFactory } from "@factories";
 
 export default (attrs = {}) => {
   const createdOSWindow = osWindowFactory.create(attrs);
