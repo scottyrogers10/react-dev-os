@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { tool as toolFactory } from "@factories";
+import { useOnWindowKeyboardShortcuts } from "@library/hooks";
 import { useStore } from "@tools/hooks";
-import ToolBrowser from "./ToolBrowser";
+import { ToolBrowser } from "./children";
+import { getShortcuts } from "./helpers";
 import styles from "./styles";
 
 const ToolsManager = ({ style, tools }) => {
-  const formattedTools = tools.map((tool) => (typeof tool === "function" ? tool() : tool));
   const isOpen = useStore((store) => store.getState("toolBrowser").isOpen);
+  const formattedTools = useMemo(() => {
+    return tools.map((tool) => {
+      return typeof tool === "function" ? toolFactory.create(tool()) : toolFactory.create(tool);
+    });
+  }, [tools]);
 
+  useOnWindowKeyboardShortcuts(getShortcuts(formattedTools));
   return isOpen && <ToolBrowser style={{ ...styles.toolBrowser, ...style }} tools={formattedTools} />;
 };
 
