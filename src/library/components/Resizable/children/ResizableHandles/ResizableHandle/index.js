@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styles from "./styles";
 
 const ResizableHandle = ({ cursor, onResize, onResizeEnd, onResizeStart, style }) => {
-  let { current: isMouseDown } = useRef(false);
+  const isMouseDown = useRef(false);
 
   const handleMouseUp = (event) => {
     document.body.style.cursor = "auto";
@@ -10,14 +10,14 @@ const ResizableHandle = ({ cursor, onResize, onResizeEnd, onResizeStart, style }
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseup", handleMouseUp);
 
-    if (isMouseDown) {
-      isMouseDown = false;
+    if (isMouseDown.current) {
+      isMouseDown.current = false;
       onResizeEnd(event);
     }
   };
 
   const handleMouseMove = (event) => {
-    if (isMouseDown) {
+    if (isMouseDown.current) {
       event.stopImmediatePropagation();
       requestAnimationFrame(() => onResize(event));
     }
@@ -26,7 +26,7 @@ const ResizableHandle = ({ cursor, onResize, onResizeEnd, onResizeStart, style }
   const handleMouseDown = (event) => {
     document.body.style.cursor = cursor;
     document.body.style.userSelect = "none";
-    isMouseDown = true;
+    isMouseDown.current = true;
     onResizeStart(event);
 
     window.addEventListener("mousemove", handleMouseMove);

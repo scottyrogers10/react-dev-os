@@ -1,3 +1,3 @@
-import uiWindows from "./ui-windows";
+import osWindows from "./os-windows";
 
-export { uiWindows };
+export { osWindows };
