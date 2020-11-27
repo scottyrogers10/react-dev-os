@@ -3,10 +3,6 @@ import { useOnWindowEvent } from "@library/hooks";
 import isActive from "./is-active";
 import isInputElement from "./is-input-element";
 
-// {
-// 	closeToolBrowser: {keyBindings: [], onShortcut: () => {}}
-// }
-
 export default (shortcuts) => {
   const keyMap = useRef({});
   const isFiredMap = useRef({});
