@@ -3,7 +3,7 @@ const bottom = ({ elem, event, minSize }) => {
 
   return {
     width: elem.width,
-    height: height > minSize.height ? height : elem.height,
+    height: height >= minSize.height ? height : elem.height,
     top: elem.top,
     left: elem.left,
   };

@@ -3,8 +3,8 @@ const top = ({ elem, event, minSize }) => {
 
   return {
     width: elem.width,
-    height: height > minSize.height ? height : elem.height,
-    top: height > minSize.height ? elem.top + event.movementY : elem.top,
+    height: height >= minSize.height ? height : elem.height,
+    top: height >= minSize.height ? elem.top + event.movementY : elem.top,
     left: elem.left,
   };
 };

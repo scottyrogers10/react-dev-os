@@ -1,5 +1,5 @@
 import React from "react";
-import { Resizable as LibResizable } from "@library/components";
+import { Resizable as UIResizable } from "@library/components";
 import { onResizeHandlers } from "./helpers";
 import styles from "./styles";
 
@@ -7,7 +7,7 @@ const Resizable = ({ children, contentRef, id, minSize, osWindowRef, style }) =>
   const { handleResize, handleResizeEnd, handleResizeStart } = onResizeHandlers({ contentRef, id, osWindowRef });
 
   return (
-    <LibResizable
+    <UIResizable
       style={{ ...style, ...styles.resizable }}
       minHeight={minSize.height}
       minWidth={minSize.width}
@@ -16,7 +16,7 @@ const Resizable = ({ children, contentRef, id, minSize, osWindowRef, style }) =>
       onResizeStart={handleResizeStart}
     >
       {children}
-    </LibResizable>
+    </UIResizable>
   );
 };
 

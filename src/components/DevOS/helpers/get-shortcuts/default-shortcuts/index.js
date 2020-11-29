@@ -3,11 +3,11 @@ import { osWindows } from "@procedures";
 
 const ALT = 18;
 const ESC = 27;
+const SPACE = 32;
 const LEFT_ARROW = 37;
 const RIGHT_ARROW = 39;
 const Q = 81;
 const W = 87;
-const Z = 90;
 
 const handleCloseToolBrowser = () => store.dispatch("toolBrowser.close");
 const handleToggleToolBrowser = () => store.dispatch("toolBrowser.toggle");
@@ -23,7 +23,7 @@ const handleFocusPrevWindow = () => osWindows.focusPrev();
 
 export default {
   closeToolBrowser: { keyBindings: [ESC], onShortcut: handleCloseToolBrowser },
-  toggleToolBrowser: { keyBindings: [[ALT, Z]], onShortcut: handleToggleToolBrowser },
+  toggleToolBrowser: { keyBindings: [[ALT, SPACE]], onShortcut: handleToggleToolBrowser },
   closeAll: { keyBindings: [[ALT, Q]], onShortcut: handleCloseAll },
   closeFocusedWindow: { keyBindings: [[ALT, W]], onShortcut: handleCloseFocusedWindow },
   focusNextWindow: { keyBindings: [[ALT, RIGHT_ARROW]], onShortcut: handleFocusNextWindow },
