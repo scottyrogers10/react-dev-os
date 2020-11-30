@@ -15,16 +15,17 @@ export default (shortcuts) => {
       if (!isFiredMap.current[key] && isActive(keyBindings, keyMap.current) && !isInputElement(target)) {
         onShortcut(event);
         isFiredMap.current[key] = true;
+        event.preventDefault();
       }
     });
   };
 
   const handleKeyUp = (event) => {
-    const { keyCode, target } = event;
+    const { keyCode } = event;
     keyMap.current = { ...keyMap.current, [keyCode]: false };
 
     Object.entries(shortcuts).forEach(([key, { keyBindings }]) => {
-      if (isFiredMap.current[key] && !isActive(keyBindings, keyMap.current) && !isInputElement(target)) {
+      if (isFiredMap.current[key] && !isActive(keyBindings, keyMap.current)) {
         isFiredMap.current[key] = false;
       }
     });
