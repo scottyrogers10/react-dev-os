@@ -1,4 +1,4 @@
 export default (target) => {
-  const tagName = target.tagName.toUpperCase();
-  return tagName === "INPUT" || tagName === "TEXTAREA";
+  const { isContentEditable, tagName } = target;
+  return tagName === "INPUT" || tagName === "TEXTAREA" || isContentEditable;
 };
