@@ -2,8 +2,6 @@ let currentId = 0;
 
 export default {
   create: (attrs = {}) => {
-    const { events = {} } = attrs;
-
     return {
       isOpaque: true,
       type: "",
@@ -25,7 +23,6 @@ export default {
       events: {
         onMove: () => {},
         onResize: () => {},
-        ...events,
       },
       id: (currentId += 1),
       isFocused: false,
