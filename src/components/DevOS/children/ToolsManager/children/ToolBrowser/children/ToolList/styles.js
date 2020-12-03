@@ -13,7 +13,7 @@ export default {
     fontWeight: "700",
     height: "28px",
     lineHeight: "28px",
-    paddingLeft: "24px",
+    paddingLeft: "16px",
   },
   list: {
     flex: 1,
@@ -27,7 +27,7 @@ export default {
       backgroundColor: isSelected && highlightColor,
       height: "28px",
       lineHeight: "28px",
-      padding: "0px 24px",
+      padding: "0px 12px 0px 16px",
     };
   },
 };

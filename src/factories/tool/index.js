@@ -4,7 +4,7 @@ export default {
       author: "",
       createdDate: "",
       description: "",
-      hotKey: null,
+      hotKeys: [],
       icon: null,
       label: "",
       version: "0.0.0",

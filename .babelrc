@@ -16,6 +16,7 @@
         "root": ["./src/"],
         "alias": {
           "@components": "./src/components",
+					"@configs": "./src/configs",
           "@factories": "./src/factories",
           "@library": "./src/library",
           "@procedures": "./src/procedures",

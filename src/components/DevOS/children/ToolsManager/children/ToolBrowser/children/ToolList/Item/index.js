@@ -1,5 +1,6 @@
 import React from "react";
-import { View } from "@library/components";
+import { Text, View } from "@library/components";
+import HotKeyLabel from "./HotKeyLabel";
 import styles from "./styles";
 
 const Item = ({ index, openOSWindow, style, tool, updateSelectedIndex }) => {
@@ -8,7 +9,8 @@ const Item = ({ index, openOSWindow, style, tool, updateSelectedIndex }) => {
 
   return (
     <View style={{ ...styles.view, ...style }} onClick={handleClick} onMouseOver={handleMouseOver}>
-      {tool.label}
+      <Text style={styles.label}>{tool.label}</Text>
+      <HotKeyLabel hotKeys={tool.hotKeys} />
     </View>
   );
 };

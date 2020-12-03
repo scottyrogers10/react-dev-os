@@ -1,7 +1,7 @@
 {
   "name": "react-dev-os",
   "author": "Scotty Rogers",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "An interactive development environment for react apps.",
   "license": "ISC",
   "repository": {
