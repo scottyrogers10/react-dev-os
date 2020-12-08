@@ -2,7 +2,7 @@ import addEventListener from "./add-event-listener";
 import close from "./close";
 import closeFocused from "./close-focused";
 import create from "./create";
-import expand from "./expand";
+import expandContract from "./expand-contract";
 import focusNext from "./focus-next";
 import focusPrev from "./focus-prev";
 import minimize from "./minimize";
@@ -14,7 +14,7 @@ export default {
   close,
   closeFocused,
   create,
-  expand,
+  expandContract,
   focusNext,
   focusPrev,
   minimize,
