@@ -7,7 +7,7 @@ import styles from "./styles";
 
 const ActionButtons = ({ id, isFocused, style }) => {
   const handleClose = () => osWindows.close(id);
-  const handleExpandContract = () => osWindows.expandContract(id);
+  const handleToggleExpand = () => osWindows.toggleExpand(id);
   const handleMinimize = () => osWindows.minimize(id);
 
   return (
@@ -22,7 +22,7 @@ const ActionButtons = ({ id, isFocused, style }) => {
         primaryColor={isFocused ? colors.yellow[700] : colors.gray[550]}
         onClick={handleMinimize}
       />
-      <ActionButton primaryColor={isFocused ? colors.green[500] : colors.gray[550]} onClick={handleExpandContract} />
+      <ActionButton primaryColor={isFocused ? colors.green[500] : colors.gray[550]} onClick={handleToggleExpand} />
     </View>
   );
 };
