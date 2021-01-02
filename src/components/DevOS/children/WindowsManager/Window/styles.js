@@ -18,8 +18,11 @@ export default {
 		minHeight: "24px",
 		height: "24px",
 	},
-	content: ({ isFocused }) => {
+	contentWrapper: ({ isFocused }) => {
 		return {
+			display: "flex",
+			flex: 1,
+			overflow: "hidden",
 			pointerEvents: isFocused ? "auto" : "none",
 		};
 	},

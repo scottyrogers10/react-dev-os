@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { ViewRef } from "@library/components";
+import { View, ViewRef } from "@library/components";
 import store from "@store";
 import { useStore } from "@tools/hooks";
 import Content from "./Content";
@@ -18,7 +18,9 @@ const Window = ({ id, style }) => {
 		<ViewRef style={{ ...styles.view(state), ...style }} onMouseDown={handleMouseDown} ref={osWindowRef}>
 			<Resizable id={id} contentRef={contentRef} minSize={state.minSize} osWindowRef={osWindowRef}>
 				<Header style={styles.header} id={id} contentRef={contentRef} osWindowRef={osWindowRef} />
-				<Content style={styles.content(state)} id={id} contentRef={contentRef} />
+				<View style={styles.contentWrapper(state)}>
+					<Content id={id} contentRef={contentRef} />
+				</View>
 			</Resizable>
 		</ViewRef>
 	);
