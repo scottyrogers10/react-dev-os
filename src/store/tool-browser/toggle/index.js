@@ -1,3 +1,3 @@
 export default ({ prevState }) => {
-  return { ...prevState, isOpen: !prevState.isOpen };
+	return { ...prevState, isOpen: !prevState.isOpen };
 };

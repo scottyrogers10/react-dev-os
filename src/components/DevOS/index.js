@@ -7,25 +7,25 @@ import { getShortcuts } from "./helpers";
 import styles from "./styles";
 
 const DevOS = ({ hotKeys, style, themeColors, tools }) => {
-  useOnWindowKeyboardShortcuts(getShortcuts(hotKeys));
+	useOnWindowKeyboardShortcuts(getShortcuts(hotKeys));
 
-  useEffect(() => {
-    themeColors && store.dispatch("ui.updateTheme", { colors: themeColors });
-  }, []);
+	useEffect(() => {
+		themeColors && store.dispatch("ui.updateTheme", { colors: themeColors });
+	}, []);
 
-  return (
-    <View style={{ ...styles.view, ...style }}>
-      <ToolsManager tools={tools} />
-      <WindowsManager />
-    </View>
-  );
+	return (
+		<View style={{ ...styles.view, ...style }}>
+			<ToolsManager tools={tools} />
+			<WindowsManager />
+		</View>
+	);
 };
 
 DevOS.defaultProps = {
-  hotKeys: {},
-  style: {},
-  themeColors: null,
-  tools: [],
+	hotKeys: {},
+	style: {},
+	themeColors: null,
+	tools: [],
 };
 
 export default DevOS;

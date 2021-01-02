@@ -8,25 +8,25 @@ import Resizable from "./Resizable";
 import styles from "./styles";
 
 const Window = ({ id, style }) => {
-  const contentRef = useRef(null);
-  const osWindowRef = useRef(null);
-  const state = useStore((store) => store.getState("osWindows").byId[id]);
+	const contentRef = useRef(null);
+	const osWindowRef = useRef(null);
+	const state = useStore((store) => store.getState("osWindows").byId[id]);
 
-  const handleMouseDown = () => !state.isFocused && store.dispatch("osWindows.focus", id);
+	const handleMouseDown = () => !state.isFocused && store.dispatch("osWindows.focus", id);
 
-  return (
-    <ViewRef style={{ ...styles.view(state), ...style }} onMouseDown={handleMouseDown} ref={osWindowRef}>
-      <Resizable id={id} contentRef={contentRef} minSize={state.minSize} osWindowRef={osWindowRef}>
-        <Header style={styles.header} id={id} contentRef={contentRef} osWindowRef={osWindowRef} />
-        <Content id={id} contentRef={contentRef} />
-      </Resizable>
-    </ViewRef>
-  );
+	return (
+		<ViewRef style={{ ...styles.view(state), ...style }} onMouseDown={handleMouseDown} ref={osWindowRef}>
+			<Resizable id={id} contentRef={contentRef} minSize={state.minSize} osWindowRef={osWindowRef}>
+				<Header style={styles.header} id={id} contentRef={contentRef} osWindowRef={osWindowRef} />
+				<Content style={styles.content(state)} id={id} contentRef={contentRef} />
+			</Resizable>
+		</ViewRef>
+	);
 };
 
 Window.defaultProps = {
-  id: null,
-  style: {},
+	id: null,
+	style: {},
 };
 
 export default Window;

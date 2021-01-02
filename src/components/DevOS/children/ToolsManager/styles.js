@@ -1,7 +1,7 @@
 export default {
-  toolBrowser: {
-    overflow: "hidden",
-    pointerEvents: "auto",
-    zIndex: 2147483647,
-  },
+	toolBrowser: {
+		overflow: "hidden",
+		pointerEvents: "auto",
+		zIndex: 2147483647,
+	},
 };

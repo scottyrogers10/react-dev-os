@@ -8,29 +8,29 @@ import topLeft from "./top-left";
 import topRight from "./top-right";
 
 const calculators = {
-  bottom,
-  bottomLeft,
-  bottomRight,
-  left,
-  right,
-  top,
-  topLeft,
-  topRight,
+	bottom,
+	bottomLeft,
+	bottomRight,
+	left,
+	right,
+	top,
+	topLeft,
+	topRight,
 };
 
 const calculateResize = ({ elem, event, handleType, minSize }) => {
-  return elem
-    ? calculators[handleType]({
-        elem: elem.getBoundingClientRect(),
-        event,
-        minSize,
-      })
-    : {
-        width: 0,
-        height: 0,
-        top: 0,
-        left: 0,
-      };
+	return elem
+		? calculators[handleType]({
+				elem: elem.getBoundingClientRect(),
+				event,
+				minSize,
+		  })
+		: {
+				width: 0,
+				height: 0,
+				top: 0,
+				left: 0,
+		  };
 };
 
 export default calculateResize;

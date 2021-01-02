@@ -1,4 +1,4 @@
 export default ({ prevState }, updatedTheme) => {
-  const theme = { ...prevState.theme, ...updatedTheme };
-  return { ...prevState, theme };
+	const theme = { ...prevState.theme, ...updatedTheme };
+	return { ...prevState, theme };
 };

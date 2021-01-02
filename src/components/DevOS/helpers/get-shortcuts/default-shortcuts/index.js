@@ -13,8 +13,8 @@ const handleCloseToolBrowser = () => store.dispatch("toolBrowser.close");
 const handleToggleToolBrowser = () => store.dispatch("toolBrowser.toggle");
 
 const handleCloseAll = () => {
-  store.dispatch("toolBrowser.close");
-  store.dispatch("osWindows.removeAll");
+	store.dispatch("toolBrowser.close");
+	store.dispatch("osWindows.removeAll");
 };
 
 const handleCloseFocusedWindow = () => osWindows.closeFocused();
@@ -22,10 +22,10 @@ const handleFocusNextWindow = () => osWindows.focusNext();
 const handleFocusPrevWindow = () => osWindows.focusPrev();
 
 export default {
-  closeToolBrowser: { keyBindings: [ESC], onShortcut: handleCloseToolBrowser },
-  toggleToolBrowser: { keyBindings: [[ALT, SPACE]], onShortcut: handleToggleToolBrowser },
-  closeAll: { keyBindings: [[ALT, Q]], onShortcut: handleCloseAll },
-  closeFocusedWindow: { keyBindings: [[ALT, W]], onShortcut: handleCloseFocusedWindow },
-  focusNextWindow: { keyBindings: [[ALT, RIGHT_ARROW]], onShortcut: handleFocusNextWindow },
-  focusPrevWindow: { keyBindings: [[ALT, LEFT_ARROW]], onShortcut: handleFocusPrevWindow },
+	closeToolBrowser: { keyBindings: [ESC], onShortcut: handleCloseToolBrowser },
+	toggleToolBrowser: { keyBindings: [[ALT, SPACE]], onShortcut: handleToggleToolBrowser },
+	closeAll: { keyBindings: [[ALT, Q]], onShortcut: handleCloseAll },
+	closeFocusedWindow: { keyBindings: [[ALT, W]], onShortcut: handleCloseFocusedWindow },
+	focusNextWindow: { keyBindings: [[ALT, RIGHT_ARROW]], onShortcut: handleFocusNextWindow },
+	focusPrevWindow: { keyBindings: [[ALT, LEFT_ARROW]], onShortcut: handleFocusPrevWindow },
 };

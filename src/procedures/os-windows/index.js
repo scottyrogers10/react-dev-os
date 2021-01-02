@@ -10,14 +10,14 @@ import resize from "./resize";
 import toggleExpand from "./toggle-expand";
 
 export default {
-  addEventListener,
-  close,
-  closeFocused,
-  create,
-  focusNext,
-  focusPrev,
-  minimize,
-  move,
-  resize,
-  toggleExpand,
+	addEventListener,
+	close,
+	closeFocused,
+	create,
+	focusNext,
+	focusPrev,
+	minimize,
+	move,
+	resize,
+	toggleExpand,
 };
