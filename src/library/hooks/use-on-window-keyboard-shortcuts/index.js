@@ -7,6 +7,11 @@ export default (shortcuts) => {
 	const keyMap = useRef({});
 	const isFiredMap = useRef({});
 
+	const handleBlur = () => {
+		keyMap.current = {};
+		isFiredMap.current = {};
+	};
+
 	const handleKeyDown = (event) => {
 		const { keyCode, target } = event;
 		keyMap.current = { ...keyMap.current, [keyCode]: true };
@@ -31,6 +36,7 @@ export default (shortcuts) => {
 		});
 	};
 
+	useOnWindowEvent("blur", handleBlur);
 	useOnWindowEvent("keydown", handleKeyDown);
 	useOnWindowEvent("keyup", handleKeyUp);
 };

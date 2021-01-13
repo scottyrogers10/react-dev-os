@@ -1,9 +1,6 @@
-import { useEffect } from "react";
+import { useOnMount, useOnUnmount } from "@library/hooks";
 
 export default (eventName, handler) => {
-	useEffect(() => {
-		window.addEventListener(eventName, handler);
-
-		return () => window.removeEventListener(eventName, handler);
-	}, [eventName, handler]);
+	useOnMount(() => window.addEventListener(eventName, handler));
+	useOnUnmount(() => window.removeEventListener(eventName, handler));
 };
