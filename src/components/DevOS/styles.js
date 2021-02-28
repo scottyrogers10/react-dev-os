@@ -6,6 +6,7 @@ export default {
 		width: "100%",
 		height: "100%",
 		zIndex: 2147483647,
+		verticalAlign: "baseline",
 		overflow: "hidden",
 		pointerEvents: "none",
 		color: "#424242",
