@@ -5,6 +5,7 @@ import store from "@store";
 import { ToolsManager, WindowsManager } from "./children";
 import { getShortcuts } from "./helpers";
 import styles from "./styles";
+import "./stylesheet.css";
 
 const DevOS = ({ hotKeys, style, themeColors, tools }) => {
 	useOnWindowKeyboardShortcuts(getShortcuts(hotKeys));
@@ -14,7 +15,7 @@ const DevOS = ({ hotKeys, style, themeColors, tools }) => {
 	}, []);
 
 	return (
-		<View style={{ ...styles.view, ...style }}>
+		<View className={"devOS"} style={{ ...styles.view, ...style }}>
 			<ToolsManager tools={tools} />
 			<WindowsManager />
 		</View>
