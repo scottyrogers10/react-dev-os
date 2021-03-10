@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { ResizableHandles } from "./children";
 import { calculateResize } from "./helpers";
+import styles from "./styles";
 
 const Resizable = ({ children, isActive, minHeight, minWidth, onResize, onResizeEnd, onResizeStart, style }) => {
 	const resizableRef = useRef(null);
@@ -16,7 +17,7 @@ const Resizable = ({ children, isActive, minHeight, minWidth, onResize, onResize
 		);
 
 	return (
-		<div style={style} ref={resizableRef}>
+		<div style={{ ...styles.view, ...style }} ref={resizableRef}>
 			{children}
 			{isActive && <ResizableHandles onResize={handleResize} onResizeEnd={onResizeEnd} onResizeStart={onResizeStart} />}
 		</div>

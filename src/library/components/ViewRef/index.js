@@ -1,7 +1,12 @@
 import React from "react";
+import styles from "./styles";
 
-const ViewRef = React.forwardRef((props, ref) => {
-	return <div {...props} ref={ref} />;
+const ViewRef = React.forwardRef(({ style, ...props }, ref) => {
+	return <div style={{ ...styles.view, ...style }} {...props} ref={ref} />;
 });
+
+ViewRef.defaultProps = {
+	style: {},
+};
 
 export default ViewRef;

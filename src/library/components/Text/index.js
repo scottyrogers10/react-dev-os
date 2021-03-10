@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./styles";
 
 const Text = ({ children, style, title }) => {
 	return (
-		<div style={style} title={title}>
+		<div style={{ ...styles.view, ...style }} title={title}>
 			{children}
 		</div>
 	);

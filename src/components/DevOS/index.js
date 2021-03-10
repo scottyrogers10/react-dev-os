@@ -5,7 +5,6 @@ import store from "@store";
 import { ToolsManager, WindowsManager } from "./children";
 import { getShortcuts } from "./helpers";
 import styles from "./styles";
-import "./stylesheet.css";
 
 const DevOS = ({ hotKeys, style, themeColors, tools }) => {
 	useOnWindowKeyboardShortcuts(getShortcuts(hotKeys));
