@@ -1,4 +1,4 @@
-import css from "@shared/styles/css";
+import css from "@library/styles/css";
 
 export default {
 	view: {

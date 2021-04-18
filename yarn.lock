@@ -2083,10 +2083,10 @@ function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
-generic-data-chamber@^6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/generic-data-chamber/-/generic-data-chamber-6.0.2.tgz#8fe60c2d688cd1fb217fd633a68ad20a10d5c56e"
-  integrity sha512-nnCQGpYn0TeL138h/A4X495z3oK0OeSNauCSrXzoxAFnSWgzaJ813w0+AuulG0pMklAKk9BCFJ8xfYgkuh6WCQ==
+generic-data-chamber@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/generic-data-chamber/-/generic-data-chamber-6.0.4.tgz#8beb75af211ccb2278ca5be5c248261d75dbdd84"
+  integrity sha512-A7RBWhplgrhGbrYBzTlkJqwzIgGi5jhfRY1Dysi3eC2UVpXYEd7kJCKd30lYaeK6YddmxF6ahoK/OOejU5LnAQ==
 
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
@@ -3409,11 +3409,6 @@ schema-utils@^2.6.5, schema-utils@^2.7.0:
     "@types/json-schema" "^7.0.4"
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
-
-scr-pipe@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/scr-pipe/-/scr-pipe-1.0.4.tgz#3bc913ea72923402bbad1cdd3cc313bc8db9baf7"
-  integrity sha512-v3c1AjPW0HxBUKckeLSIrxzyLf3edjs2V0F9tIzEAl6ReL0WzfUCbqQJ2C3QAjvZU0cS8qCgeehNKGlIAS6kRg==
 
 semver@7.0.0:
   version "7.0.0"

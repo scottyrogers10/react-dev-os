@@ -15,6 +15,7 @@
 			{
 				"root": ["./src/"],
 				"alias": {
+					"@library": "./src/library",
 					"@shared": "./src/shared"
 				}
 			}
