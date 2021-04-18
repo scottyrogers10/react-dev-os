@@ -1,29 +1,23 @@
 {
-  "presets": [
-    "@babel/preset-react",
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "usage",
-        "corejs": 3
-      }
-    ]
-  ],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./src/"],
-        "alias": {
-          "@components": "./src/components",
-					"@configs": "./src/configs",
-          "@factories": "./src/factories",
-          "@library": "./src/library",
-          "@procedures": "./src/procedures",
-          "@store": "./src/store",
-          "@tools": "./src/tools"
-        }
-      }
-    ]
-  ]
+	"presets": [
+		"@babel/preset-react",
+		[
+			"@babel/preset-env",
+			{
+				"useBuiltIns": "usage",
+				"corejs": 3
+			}
+		]
+	],
+	"plugins": [
+		[
+			"module-resolver",
+			{
+				"root": ["./src/"],
+				"alias": {
+					"@shared": "./src/shared"
+				}
+			}
+		]
+	]
 }

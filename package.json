@@ -1,7 +1,7 @@
 {
 	"name": "react-dev-os",
 	"author": "Scotty Rogers",
-	"version": "0.1.27",
+	"version": "1.0.0",
 	"description": "An interactive development environment for react apps.",
 	"license": "ISC",
 	"repository": {
@@ -26,10 +26,7 @@
 		"build": "webpack --config webpack.config.js --mode production",
 		"prepublishOnly": "webpack --config webpack.config.js --mode production"
 	},
-	"dependencies": {
-		"generic-data-chamber": "^6.0.2",
-		"scr-pipe": "^1.0.4"
-	},
+	"dependencies": {},
 	"peerDependencies": {
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1"
