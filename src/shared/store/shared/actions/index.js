@@ -1,4 +1,5 @@
+import deepMerge from "./deep-merge";
 import merge from "./merge";
 import update from "./update";
 
-export { merge, update };
+export { deepMerge, merge, update };

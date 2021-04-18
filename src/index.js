@@ -1,12 +1,12 @@
 import React from "react";
 import { View } from "@library/components";
 import { useOnMount } from "@library/hooks";
-import store from "@shared/store";
 import { ToolsManager } from "./components";
+import { init } from "./procedures";
 import styles from "./styles";
 
 const DevOS = ({ tools }) => {
-	useOnMount(() => store.dispatch("configs.merge", { tools }));
+	useOnMount(() => init({ tools }));
 
 	return (
 		<View style={styles.view}>

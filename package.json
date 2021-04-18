@@ -27,7 +27,8 @@
 		"prepublishOnly": "webpack --config webpack.config.js --mode production"
 	},
 	"dependencies": {
-		"generic-data-chamber": "^6.0.4"
+		"generic-data-chamber": "^6.0.4",
+		"lodash": "^4.17.21"
 	},
 	"peerDependencies": {
 		"react": "^16.13.1",
