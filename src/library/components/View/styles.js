@@ -1,7 +1,3 @@
-import { css } from "@library/styles";
-
-export default {
-	view: {
-		...css.defaultStyles,
-	},
-};
+export default (_theme, { layoutProps }) => ({
+	root: { ...layoutProps },
+});

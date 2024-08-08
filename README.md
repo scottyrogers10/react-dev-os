@@ -17,7 +17,7 @@ $ yarn add react-dev-os
 
 ## Getting Started
 
-Adding DevOS to your project is simple. Since it is just a React component, we can import it and add it to our component tree. There are a few different props that we can pass down, but for this basic example we will just pass in an array to the tools prop.
+Adding DevOS to your project is simple. Since it is just a React component, we can just import and add it to our component tree. There are a few different props that we can pass down, but for this basic example we will just pass in an array to the tools prop.
 
 ```jsx
 import DevOS from "./DevOS";

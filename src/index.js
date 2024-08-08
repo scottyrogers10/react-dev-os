@@ -1,3 +1,3 @@
-import DevOS from "./components/DevOS";
+import app from "#app";
 
-export default DevOS;
+export default app;
