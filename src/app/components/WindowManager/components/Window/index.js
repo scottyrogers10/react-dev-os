@@ -11,7 +11,7 @@ const Window = ({ id = null, style = {}, ...props }) => {
 
 	return (
 		<View style={[stylesheet.root, style]} {...props}>
-			<Header flex={1} style={stylesheet.header} />
+			<Header flex={1} id={id} style={stylesheet.header} />
 		</View>
 	);
 };

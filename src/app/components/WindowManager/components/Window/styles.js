@@ -1,4 +1,4 @@
-export default (_theme, { isFocused, isOpaque, position: { x, y }, size: { height, width }, renderIndex }) => ({
+export default (_theme, { isOpaque, position: { x, y }, size: { height, width }, renderIndex }) => ({
 	header: {
 		height: "24px",
 		minHeight: "24px",
