@@ -1,3 +1,4 @@
 import colors from "./colors";
+import css from "./css";
 
-export default { colors };
+export default { colors, css };

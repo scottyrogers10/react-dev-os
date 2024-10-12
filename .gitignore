@@ -21,4 +21,6 @@ jspm_packages/
 
 .DS_Store
 
+demo
+
 dist

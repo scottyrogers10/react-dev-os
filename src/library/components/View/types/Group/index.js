@@ -3,8 +3,8 @@ import { View } from "#library/components";
 import { useStyles } from "#library/hooks";
 import styles from "./styles";
 
-const Group = ({ align, justify, style, ...props }) => {
-	const { styleSheet } = useStyles(styles);
+const Group = ({ align = "flex-start", justify = "flex-start", style = {}, ...props }) => {
+	const { stylesheet } = useStyles(styles);
 
 	return (
 		<View
@@ -12,16 +12,10 @@ const Group = ({ align, justify, style, ...props }) => {
 			display={"flex"}
 			flexDirection={"row"}
 			justify={justify}
-			style={[styleSheet.root, style]}
+			style={[stylesheet.root, style]}
 			{...props}
 		/>
 	);
-};
-
-Group.defaultProps = {
-	align: "flex-start",
-	justify: "flex-start",
-	style: {},
 };
 
 export default Group;

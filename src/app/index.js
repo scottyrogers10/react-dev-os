@@ -1,20 +1,23 @@
 import React from "react";
 import { View } from "#library/components";
 import { useStyles } from "#library/hooks";
+import { WindowManager } from "./components";
 import styles from "./styles";
 
-const App = ({ style, ...props }) => {
+import store from "#store";
+import windows from "#procedures/windows";
+
+const App = ({ style = {}, ...props }) => {
 	const { stylesheet } = useStyles(styles);
+
+	window.store = store;
+	window.createWindow = windows.create;
 
 	return (
 		<View style={[stylesheet.root, style]} {...props}>
-			React DevOS
+			<WindowManager />
 		</View>
 	);
-};
-
-App.defaultProps = {
-	style: {},
 };
 
 export default App;
