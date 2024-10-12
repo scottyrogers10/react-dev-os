@@ -1,18 +1,21 @@
 import React from "react";
-import { View } from "#library/components";
+import { ViewRef } from "#library/components";
 import { useStyles } from "#library/hooks";
-import { TitleBar } from "./components";
+import { Content, Frame, TitleBar } from "./components";
 import { useController } from "./hooks";
 import styles from "./styles";
 
 const Window = ({ id = null, style = {}, ...props }) => {
-	const { state } = useController(id);
+	const { handlers, refs, state } = useController(id);
 	const { stylesheet } = useStyles(styles, state.window);
 
 	return (
-		<View style={[stylesheet.root, style]} {...props}>
-			<TitleBar flex={1} id={id} style={stylesheet.titleBar} />
-		</View>
+		<ViewRef onMouseDown={handlers.mouseDown} ref={refs.window} style={[stylesheet.root, style]} {...props}>
+			<Frame id={id} minSize={state.window.minSize} refs={refs}>
+				<TitleBar id={id} />
+				<Content id={id} ref={refs.content} />
+			</Frame>
+		</ViewRef>
 	);
 };
 

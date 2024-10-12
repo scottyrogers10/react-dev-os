@@ -1,19 +1,11 @@
 import store from "#store";
 
-const BODY = document.body;
-const WINDOW = window;
+const DOCUMENT_ELEMENT = window.document.documentElement;
 
 export default (id) => {
 	const { contractPosition, contractSize, position, size } = store.getState("windows").byId[id];
-
-	const hasVerticalScrollBar = BODY.clientWidth < WINDOW.innerWidth;
-	const hasHorizontalScrollBar = BODY.clientHeight < WINDOW.innerHeight;
-
-	const height = hasHorizontalScrollBar
-		? WINDOW.innerHeight - (WINDOW.innerHeight - BODY.clientHeight)
-		: WINDOW.innerHeight;
-
-	const width = hasVerticalScrollBar ? WINDOW.innerWidth - (WINDOW.innerWidth - BODY.clientWidth) : WINDOW.innerWidth;
+	const height = DOCUMENT_ELEMENT.clientHeight;
+	const width = DOCUMENT_ELEMENT.clientWidth;
 
 	const isExpanded = size.height === height && size.width === width && position.x === 0 && position.y === 0;
 

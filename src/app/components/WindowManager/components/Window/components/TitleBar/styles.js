@@ -6,8 +6,11 @@ export default (_theme, { isFocused }) => ({
 		borderRadius: "6px 6px 0px 0px",
 		borderRight: "1px solid #696969",
 		borderTop: "1px solid #696969",
+		height: "24px",
+		minHeight: "24px",
 		overflow: "hidden",
 		padding: "0px 6px",
+		pointerEvents: "auto",
 	},
 	title: {
 		color: isFocused ? "#eaeaea" : "#696969",

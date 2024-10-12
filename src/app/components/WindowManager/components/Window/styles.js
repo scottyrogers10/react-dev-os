@@ -11,9 +11,4 @@ export default (_theme, { isOpaque, position: { x, y }, size: { height, width },
 		width: `${width}px`,
 		zIndex: renderIndex,
 	},
-	titleBar: {
-		height: "24px",
-		minHeight: "24px",
-		pointerEvents: "auto",
-	},
 });
