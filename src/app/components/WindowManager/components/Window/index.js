@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "#library/components";
 import { useStyles } from "#library/hooks";
-import { Header } from "./components";
+import { TitleBar } from "./components";
 import { useController } from "./hooks";
 import styles from "./styles";
 
@@ -11,7 +11,7 @@ const Window = ({ id = null, style = {}, ...props }) => {
 
 	return (
 		<View style={[stylesheet.root, style]} {...props}>
-			<Header flex={1} id={id} style={stylesheet.header} />
+			<TitleBar flex={1} id={id} style={stylesheet.titleBar} />
 		</View>
 	);
 };

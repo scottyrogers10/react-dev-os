@@ -1,3 +1,3 @@
-import Header from "./Header";
+import TitleBar from "./TitleBar";
 
-export { Header };
+export { TitleBar };

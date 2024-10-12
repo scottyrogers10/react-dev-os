@@ -7,11 +7,11 @@ import styles from "./styles";
 import store from "#store";
 import windows from "#procedures/windows";
 
+window.store = store;
+window.createWindow = windows.create;
+
 const App = ({ style = {}, ...props }) => {
 	const { stylesheet } = useStyles(styles);
-
-	window.store = store;
-	window.createWindow = windows.create;
 
 	return (
 		<View style={[stylesheet.root, style]} {...props}>
