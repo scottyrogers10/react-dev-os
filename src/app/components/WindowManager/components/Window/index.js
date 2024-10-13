@@ -10,7 +10,13 @@ const Window = ({ id = null, style = {}, ...props }) => {
 	const { stylesheet } = useStyles(styles, state.window);
 
 	return (
-		<ViewRef onMouseDown={handlers.mouseDown} ref={refs.window} style={[stylesheet.root, style]} {...props}>
+		<ViewRef
+			inlineStyle={state.inlineStyle}
+			onMouseDown={handlers.mouseDown}
+			ref={refs.window}
+			style={[stylesheet.root, style]}
+			{...props}
+		>
 			<Frame id={id} minSize={state.window.minSize} refs={refs}>
 				<TitleBar id={id} />
 				<Content id={id} ref={refs.content} />

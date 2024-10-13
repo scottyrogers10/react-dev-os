@@ -2,10 +2,10 @@ export default (_theme, { isFocused }) => ({
 	root: {
 		backgroundColor: isFocused ? "#383838" : "#282828",
 		borderBottom: "1px solid #0f0f0f",
-		borderLeft: "2px solid #696969",
+		borderLeft: "1px solid #696969",
 		borderRadius: "10px 10px 0px 0px",
-		borderRight: "2px solid #696969",
-		borderTop: "2px solid #696969",
+		borderRight: "1px solid #696969",
+		borderTop: "1px solid #696969",
 		height: "29px",
 		minHeight: "29px",
 		overflow: "hidden",
