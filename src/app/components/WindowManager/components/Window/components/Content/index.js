@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ViewRef } from "#library/components";
+import { Text, View, ViewRef } from "#library/components";
 import { useStyles } from "#library/hooks";
 import styles from "./styles";
 

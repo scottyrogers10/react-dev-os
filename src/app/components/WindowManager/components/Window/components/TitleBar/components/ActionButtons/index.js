@@ -11,8 +11,8 @@ const ActionButtons = ({ id = null, isFocused = false, style = {}, ...props }) =
 
 	return (
 		<View.Group style={[stylesheet.root, style]} {...props}>
-			<ActionButton onClick={handlers.close} isFocused={isFocused} mr={6} primaryColor={"#ed6a5e"} />
-			<ActionButton onClick={handlers.minimize} isFocused={isFocused} mr={6} primaryColor={"#f5bf4f"} />
+			<ActionButton onClick={handlers.close} isFocused={isFocused} mr={8} primaryColor={"#ed6a5e"} />
+			<ActionButton onClick={handlers.minimize} isFocused={isFocused} mr={8} primaryColor={"#f5bf4f"} />
 			<ActionButton onClick={handlers.toggleExpand} isFocused={isFocused} primaryColor={"#61c554"} />
 		</View.Group>
 	);

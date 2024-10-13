@@ -46,10 +46,7 @@ export default (props = {}) => {
 
 	return {
 		layoutProps: Object.entries(spacingProps).reduce((prevVal, [key, value]) => {
-			if (spacingProps[key] !== undefined) {
-				prevVal[key] = value;
-			}
-
+			if (spacingProps[key] !== undefined) prevVal[key] = value;
 			return prevVal;
 		}, {}),
 		rest,

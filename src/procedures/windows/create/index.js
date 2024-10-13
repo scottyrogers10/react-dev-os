@@ -10,6 +10,7 @@ export default (attrs = {}) => {
 		component: () => null,
 		contractPosition: position,
 		contractSize: size,
+		events: { onMove: () => {}, onResize: () => {} },
 		id: (currentId += 1),
 		isFocused: false,
 		isOpaque: true,

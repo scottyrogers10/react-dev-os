@@ -1,3 +1,3 @@
-export default (_theme, { layoutProps }) => ({
-	root: { ...layoutProps },
+export default ({ css }, { layoutProps }) => ({
+	root: { ...css.defaultStyles, ...layoutProps },
 });

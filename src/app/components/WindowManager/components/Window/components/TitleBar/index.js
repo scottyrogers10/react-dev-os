@@ -12,7 +12,7 @@ const TitleBar = ({ id = null, style = {}, ...props }) => {
 	return (
 		<View.Group align={"center"} onDoubleClick={handlers.doubleClick} style={[stylesheet.root, style]} {...props}>
 			<ActionButtons id={id} isFocused={state.isFocused} pr={16} />
-			<Text align={"center"} ellipsis={true} flex={1} mr={48} style={stylesheet.title}>
+			<Text align={"center"} ellipsis={true} flex={1} mr={52} style={stylesheet.title}>
 				{state.title}
 			</Text>
 		</View.Group>
