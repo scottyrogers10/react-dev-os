@@ -1,4 +1,4 @@
-export default (_theme, { isOpaque, position: { x, y }, size: { height, width }, renderIndex }) => ({
+export default (_theme, { isOpaque, renderIndex }) => ({
 	root: {
 		borderRadius: "10px",
 		boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 15px -3px, 0 4px 6px -2px rgba(0, 0, 0, 0.05)",

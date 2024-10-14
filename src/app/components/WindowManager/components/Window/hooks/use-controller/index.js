@@ -7,13 +7,15 @@ export default (id) => {
 	const windowRef = useRef(null);
 	const window = useStore((store) => store.getState("windows").byId[id], ["windows"]);
 
-	const inlineStyle = {
-		height: `${window.size.height}px`,
-		transform: `translate(${window.position.x}px, ${window.position.y}px)`,
-		width: `${window.size.width}px`,
+	const inlineStyles = {
+		root: {
+			height: `${window.size.height}px`,
+			transform: `translate(${window.position.x}px, ${window.position.y}px)`,
+			width: `${window.size.width}px`,
+		},
 	};
 
 	const mouseDown = () => !window.isFocused && store.dispatch("windows.focus", id);
 
-	return { handlers: { mouseDown }, refs: { content: contentRef, window: windowRef }, state: { inlineStyle, window } };
+	return { handlers: { mouseDown }, inlineStyles, refs: { content: contentRef, window: windowRef }, state: { window } };
 };

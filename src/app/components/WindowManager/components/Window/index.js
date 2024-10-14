@@ -6,12 +6,12 @@ import { useController } from "./hooks";
 import styles from "./styles";
 
 const Window = ({ id = null, style = {}, ...props }) => {
-	const { handlers, refs, state } = useController(id);
+	const { handlers, inlineStyles, refs, state } = useController(id);
 	const { stylesheet } = useStyles(styles, state.window);
 
 	return (
 		<ViewRef
-			inlineStyle={state.inlineStyle}
+			inlineStyle={inlineStyles.root}
 			onMouseDown={handlers.mouseDown}
 			ref={refs.window}
 			style={[stylesheet.root, style]}
