@@ -18,7 +18,7 @@ const Window = ({ id = null, style = {}, ...props }) => {
 			{...props}
 		>
 			<Frame id={id} minSize={state.window.minSize} refs={refs}>
-				<TitleBar id={id} />
+				<TitleBar id={id} refs={refs} />
 				<Content id={id} ref={refs.content} />
 			</Frame>
 		</ViewRef>

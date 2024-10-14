@@ -14,7 +14,7 @@ export default (attrs = {}) => {
 		id: (currentId += 1),
 		isFocused: false,
 		isOpaque: true,
-		minSize: { height: 24, width: 95 },
+		minSize: { height: 30, width: 95 },
 		position,
 		size,
 		title: "",

@@ -4,12 +4,10 @@ import validateLeftPosition from "./validate-left-position";
 import validateRightPosition from "./validate-right-position";
 import validateTopPosition from "./validate-top-position";
 
-export default ({ dimensions, shouldDispatch }) => {
-	const { height, width, x, y } = dimensions;
+export default ({ elem, event, window }) => {
+	const { x: prevX, y: prevY } = elem.getBoundingClientRect();
 
-	if (shouldDispatch) return { position: { x, y }, size: { height, width } };
-
-	return pipe({ position: { x, y }, size: { height, width } })
+	return pipe({ position: { x: prevX + event.movementX, y: prevY + event.movementY }, size: window.size })
 		.flow(validateTopPosition)
 		.flow(validateBottomPosition)
 		.flow(validateLeftPosition)
