@@ -1,3 +1,4 @@
+import ToolManager from "./ToolManager";
 import WindowManager from "./WindowManager";
 
-export { WindowManager };
+export { ToolManager, WindowManager };
