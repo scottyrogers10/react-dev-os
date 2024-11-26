@@ -1,7 +1,7 @@
 import React from "react";
 import { useLayoutProps, useStyles } from "#library/hooks";
-import { Group, Stack } from "./types";
 import styles from "./styles";
+import { Group, Stack } from "./types";
 
 const ViewRef = React.forwardRef(({ inlineStyle = {}, style = {}, ...props }, ref) => {
 	const { layoutProps, rest } = useLayoutProps(props);

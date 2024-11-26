@@ -17,5 +17,5 @@ export default (id) => {
 				id,
 				position: { x: 0, y: 0 },
 				size: { height, width },
-		  });
+			});
 };

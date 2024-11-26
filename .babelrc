@@ -5,9 +5,9 @@
 			{
 				"alias": {
 					"#app": "./src/app",
+					"#core": "./src/core",
 					"#hooks": "./src/hooks",
 					"#library": "./src/library",
-					"#procedures": "./src/procedures",
 					"#store": "./src/store"
 				},
 				"root": ["./src"]

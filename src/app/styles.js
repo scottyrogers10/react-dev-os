@@ -1,9 +1,9 @@
 export default ({ colors }) => ({
 	root: {
 		color: colors.gray[750],
-		fontSize: "14px",
 		fontFamily:
 			"-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji",
+		fontSize: "14px",
 		height: "100%",
 		left: 0,
 		lineHeight: "16px",

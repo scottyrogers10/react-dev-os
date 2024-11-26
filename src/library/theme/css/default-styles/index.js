@@ -3,7 +3,7 @@ export default {
 	boxSizing: "border-box",
 	lineHeight: 1.2,
 	margin: 0,
-	padding: 0,
 	MozOsxFontSmoothing: "grayscale",
+	padding: 0,
 	WebkitFontSmoothing: "antialiased",
 };

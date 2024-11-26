@@ -4,8 +4,8 @@ import { useStyles } from "#library/hooks";
 import { ToolManager, WindowManager } from "./components";
 import styles from "./styles";
 
+import { windows } from "#core";
 import store from "#store";
-import windows from "#procedures/windows";
 
 window.store = store;
 window.createWindow = windows.create;

@@ -6,6 +6,7 @@ export default ({ elem, event, id, shouldDispatch = false }) => {
 
 	if (elem && window) {
 		const { position } = calculateMove({ elem, event, window });
+
 		elem.style.transform = `translate(${position.x}px, ${position.y}px)`;
 		window.events.onMove(event, { position });
 

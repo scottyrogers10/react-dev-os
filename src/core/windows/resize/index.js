@@ -6,6 +6,7 @@ export default ({ dimensions, elem, event, id, shouldDispatch = false }) => {
 
 	if (elem && window) {
 		const { position, size } = calculateResize({ dimensions, shouldDispatch });
+
 		elem.style.transform = `translate(${position.x}px, ${position.y}px)`;
 		elem.style.height = `${size.height}px`;
 		elem.style.width = `${size.width}px`;

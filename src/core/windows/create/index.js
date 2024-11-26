@@ -16,10 +16,10 @@ export default (attrs = {}) => {
 		isOpaque: true,
 		minSize: { height: 30, width: 95 },
 		position,
+		renderIndex: 0,
 		size,
 		title: "",
 		type: "",
-		renderIndex: 0,
 		...attrs,
 	};
 

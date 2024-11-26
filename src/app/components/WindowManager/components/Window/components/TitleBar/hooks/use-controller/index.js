@@ -1,6 +1,7 @@
+import { windows } from "#core";
 import { useStore } from "#hooks";
 import { useOnMove } from "#library/hooks";
-import windows from "#procedures/windows";
+import store from "#store";
 
 export default ({ id, refs }) => {
 	const { isFocused, isOpaque, title } = useStore((store) => store.getState("windows").byId[id], ["windows"]);

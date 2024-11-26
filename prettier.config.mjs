@@ -1,0 +1,17 @@
+export default {
+	arrowParens: "always",
+	bracketSpacing: true,
+	importOrder: ["^[@]", "^[#]", "^[.]"],
+	importOrderCaseInsensitive: false,
+	importOrderSeparation: false,
+	importOrderSortSpecifiers: true,
+	jsxSingleQuote: false,
+	plugins: ["@trivago/prettier-plugin-sort-imports"],
+	printWidth: 120,
+	quoteProps: "consistent",
+	semi: true,
+	singleQuote: false,
+	tabWidth: 2,
+	trailingComma: "es5",
+	useTabs: true,
+};

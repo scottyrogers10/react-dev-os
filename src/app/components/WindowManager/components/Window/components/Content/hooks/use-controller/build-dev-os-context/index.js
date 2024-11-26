@@ -1,4 +1,4 @@
-import windows from "#procedures/windows";
+import { windows } from "#core";
 
 export default (id) => {
 	return {

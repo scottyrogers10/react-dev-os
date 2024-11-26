@@ -1,4 +1,4 @@
-import windows from "#procedures/windows";
+import { windows } from "#core";
 
 export default ({ id, refs }) => {
 	const resize = (event, dimensions) => windows.resize({ dimensions, elem: refs.window.current, event, id });
@@ -6,6 +6,7 @@ export default ({ id, refs }) => {
 	const resizeEnd = (event) => {
 		if (refs.window.current) {
 			const dimensions = refs.window.current.getBoundingClientRect();
+
 			windows.resize({ dimensions, elem: refs.window.current, event, id, shouldDispatch: true });
 		}
 

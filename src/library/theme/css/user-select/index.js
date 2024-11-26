@@ -1,14 +1,14 @@
 const none = {
-	userSelect: "none",
 	MozUserSelect: "none",
 	MsUserSelect: "none",
+	userSelect: "none",
 	WebkitUserSelect: "none",
 };
 
 const text = {
-	userSelect: "text",
 	MozUserSelect: "text",
 	MsUserSelect: "text",
+	userSelect: "text",
 	WebkitUserSelect: "text",
 };
 

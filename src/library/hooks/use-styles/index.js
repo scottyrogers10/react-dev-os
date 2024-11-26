@@ -1,4 +1,4 @@
-import { css as merge, StyleSheet } from "aphrodite/no-important";
+import { StyleSheet, css as merge } from "aphrodite/no-important";
 import theme from "#library/theme";
 import { flattenStyles } from "#library/utils/styles";
 
